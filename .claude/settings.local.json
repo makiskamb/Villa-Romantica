@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npm install *)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(node scripts/reorganize-photos.mjs)",
+      "Bash(node scripts/optimize-images.mjs)",
+      "Bash(node -e \"import\\('sharp'\\).then\\(\\({default: sharp}\\) => sharp\\('public/photos/hero/hero-1.jpg'\\).metadata\\(\\).then\\(m => console.log\\(m\\)\\).catch\\(e => console.error\\(e.message\\)\\)\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const s = require\\('./node_modules/sharp/package.json'\\); console.log\\('sharp:', s.version\\)\")",
+      "Bash(node scripts/debug-sharp.mjs)",
+      "Bash(node scripts/test-optimize.mjs)",
+      "Bash(npx tsc *)",
+      "Bash(node_modules/.bin/tsc --noEmit)",
+      "Bash(node_modules/.bin/vite build *)",
+      "WebFetch(domain:gifyu.com)",
+      "WebFetch(domain:s11.gifyu.com)",
+      "WebFetch(domain:s6.gifyu.com)",
+      "WebFetch(domain:s4.gifyu.com)",
+      "Bash(dir \"C:\\\\Users\\\\maxfo\\\\Desktop\\\\Websites\\\\Luxury Villa Website Design\\\\public\" /b)",
+      "Bash(npm run *)"
+    ]
+  }
+}
