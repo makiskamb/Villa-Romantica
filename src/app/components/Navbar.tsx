@@ -143,8 +143,8 @@ export function Navbar() {
 
           {/* Right side */}
           <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-            {/* Language toggle */}
-            <div style={{ display: "flex", alignItems: "center" }}>
+            {/* Language toggle — hidden on mobile */}
+            <div className="lang-toggle" style={{ display: "flex", alignItems: "center" }}>
               <button
                 onClick={() => setLang("en")}
                 style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", letterSpacing: "0.15em", textTransform: "uppercase", color: lang === "en" ? textColor : textColorMuted, background: "none", border: "none", cursor: "pointer", padding: "0.25rem 0.5rem 0.25rem 0", transition: "color 0.3s ease" }}
@@ -314,6 +314,12 @@ export function Navbar() {
           );
         })()}
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .lang-toggle { display: none !important; }
+        }
+      `}</style>
     </>
   );
 }
