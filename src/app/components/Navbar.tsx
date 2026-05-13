@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { useLanguage } from "../context/LanguageContext";
 import { useTransition } from "../context/TransitionContext";
@@ -6,7 +6,6 @@ import { useTransition } from "../context/TransitionContext";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrollbarW, setScrollbarW] = useState(0);
   const { lang, setLang, t } = useLanguage();
   const location = useLocation();
   const { go } = useTransition();
@@ -24,24 +23,11 @@ export function Navbar() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [location.pathname]);
 
-  useLayoutEffect(() => {
-    if (menuOpen) {
-      const sw = window.innerWidth - document.documentElement.clientWidth;
-      setScrollbarW(sw);
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = `${sw}px`;
-    } else {
-      setScrollbarW(0);
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
-    };
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  /** Navigate with transition — skip if already on the target page */
   const nav = (to: string) => {
     setMenuOpen(false);
     if (location.pathname !== to) go(to);
@@ -58,10 +44,10 @@ export function Navbar() {
     { label: t.nav.contact,    href: "/contact" },
   ];
 
-  const headerBg        = transparent ? "transparent" : "rgba(236,234,224,0.96)";
-  const headerBorder    = transparent ? "1px solid transparent" : "1px solid rgba(68,67,64,0.1)";
-  const textColor       = transparent ? "#ffffff" : "#444340";
-  const textColorMuted  = transparent ? "rgba(255,255,255,0.65)" : "rgba(68,67,64,0.55)";
+  const headerBg       = transparent ? "transparent" : "rgba(236,234,224,0.96)";
+  const headerBorder   = transparent ? "1px solid transparent" : "1px solid rgba(68,67,64,0.1)";
+  const textColor      = transparent ? "#ffffff" : "#444340";
+  const textColorMuted = transparent ? "rgba(255,255,255,0.65)" : "rgba(68,67,64,0.55)";
 
   return (
     <>
@@ -78,10 +64,8 @@ export function Navbar() {
       >
         <div
           style={{
-            maxWidth: "100%",
-            margin: "0",
             paddingLeft: "2rem",
-            paddingRight: `calc(2rem + ${scrollbarW}px)`,
+            paddingRight: "2rem",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -104,12 +88,13 @@ export function Navbar() {
             <span style={{ display: "block", width: "14px", height: "1px", backgroundColor: textColor, transition: "background 0.6s ease" }} />
           </button>
 
-          {/* Logo — center, uses transition nav */}
+          {/* Logo — centered */}
           <a
             href="/"
             onClick={(e) => { e.preventDefault(); nav("/"); }}
             style={{
-              position: "absolute", left: "50%", top: "50%", transform: `translateX(calc(-50% - ${scrollbarW / 2}px)) translateY(-50%)`,
+              position: "absolute", left: "50%", top: "50%",
+              transform: "translateX(-50%) translateY(-50%)",
               textDecoration: "none", display: "flex", alignItems: "center",
               transition: "opacity 0.4s ease", cursor: "pointer",
             }}
@@ -124,9 +109,7 @@ export function Navbar() {
                 width: "auto",
                 objectFit: "contain",
                 transition: "filter 0.6s ease, opacity 0.5s ease",
-                filter: transparent
-                  ? "none"
-                  : "invert(1) brightness(0.267)",
+                filter: transparent ? "none" : "invert(1) brightness(0.267)",
               }}
               onError={(e) => {
                 const parent = e.currentTarget.parentElement;
