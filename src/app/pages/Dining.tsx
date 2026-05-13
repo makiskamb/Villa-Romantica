@@ -37,7 +37,7 @@ export function Dining() {
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(170deg, rgba(30,29,27,0.15) 0%, rgba(30,29,27,0.55) 60%, rgba(30,29,27,0.82) 100%)" }} />
 
-        <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 2.5rem clamp(3.5rem, 7vw, 6rem)", maxWidth: "1440px", margin: "0 auto" }}>
+        <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 2.5rem clamp(3.5rem, 7vw, 6rem)", maxWidth: "100%", margin: "0 auto" }}>
           <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.1 }}>
             <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.38em", textTransform: "uppercase", color: "rgba(236,234,224,0.5)", marginBottom: "1.25rem" }}>
               {d.heroLabel}
@@ -51,7 +51,7 @@ export function Dining() {
 
       {/* ── Intro ── */}
       <section style={{ backgroundColor: "#ffffff", padding: "7rem 0" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export function Dining() {
 
       {/* ── Breakfast ── */}
       <section style={{ backgroundColor: "#eceae0", padding: "9rem 0" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "6rem", alignItems: "start" }}>
 
             {/* Images */}
@@ -159,7 +159,7 @@ export function Dining() {
 
       {/* ── Bar & Drinks ── */}
       <section style={{ backgroundColor: "#1e1d1b", padding: "9rem 0" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "6rem", alignItems: "start" }}>
 
             {/* Text */}
@@ -221,7 +221,7 @@ export function Dining() {
 
       {/* ── Local Dining ── */}
       <section style={{ backgroundColor: "#ffffff", padding: "9rem 0" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
 
             {/* Images */}

@@ -16,7 +16,7 @@ export function Contact() {
           borderBottom: "1px solid rgba(68,67,64,0.1)",
         }}
       >
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

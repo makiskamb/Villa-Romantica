@@ -15,7 +15,7 @@ export function Footer() {
         padding: "4rem 0 1.5rem",
       }}
     >
-      <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+      <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
         {/* Top grid */}
         <div
           style={{

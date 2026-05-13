@@ -52,7 +52,7 @@ export function HeroSection() {
           flexDirection: "column",
           justifyContent: "flex-end",
           padding: "0 2.5rem clamp(4rem, 8vw, 7rem)",
-          maxWidth: "1440px",
+          maxWidth: "100%",
           margin: "0 auto",
         }}
       >

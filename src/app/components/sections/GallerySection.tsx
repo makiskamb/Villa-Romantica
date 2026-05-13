@@ -34,7 +34,7 @@ export function GallerySection() {
 
   return (
     <section id="gallery" style={{ backgroundColor: "#eceae0", padding: "10rem 0" }}>
-      <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+      <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* Header */}
         <motion.div

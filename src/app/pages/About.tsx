@@ -34,7 +34,7 @@ export function About() {
           style={{
             position: "relative", height: "100%", display: "flex", flexDirection: "column",
             justifyContent: "flex-end", padding: "0 2.5rem clamp(3.5rem, 7vw, 6rem)",
-            maxWidth: "1440px", margin: "0 auto",
+            maxWidth: "100%", margin: "0 auto",
           }}
         >
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
@@ -50,7 +50,7 @@ export function About() {
 
       {/* ── Our Story ── */}
       <section style={{ backgroundColor: "#ffffff", padding: "8rem 0" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="about-story-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
 
             {/* Text */}
@@ -113,7 +113,7 @@ export function About() {
 
       {/* ── Our Philosophy ── */}
       <section style={{ backgroundColor: BG_CREAM, padding: "8rem 0" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
             style={{ marginBottom: "5rem" }}>
@@ -159,7 +159,7 @@ export function About() {
 
       {/* ── The Place ── */}
       <section style={{ backgroundColor: "#ffffff", padding: "8rem 0" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="about-place-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
 
             {/* Image */}

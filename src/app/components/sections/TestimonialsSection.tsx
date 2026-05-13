@@ -107,7 +107,7 @@ export function TestimonialsSection() {
 
   return (
     <section style={{ backgroundColor: "#444340", padding: "10rem 0", overflow: "hidden" }}>
-      <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+      <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* ── Header ── */}
         <motion.div

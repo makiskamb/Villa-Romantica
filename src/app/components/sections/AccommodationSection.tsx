@@ -43,7 +43,7 @@ export function AccommodationSection() {
 
   return (
     <section id="rooms" style={{ backgroundColor: BG_CREAM, padding: "10rem 0" }}>
-      <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+      <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* Header */}
         <motion.div

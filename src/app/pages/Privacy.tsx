@@ -37,7 +37,7 @@ export function Privacy() {
 
       {/* Header */}
       <div style={{ backgroundColor: C, paddingTop: "calc(86px + 5rem)", paddingBottom: "5rem" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
             <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.38em", textTransform: "uppercase", color: "rgba(236,234,224,0.4)", marginBottom: "1.25rem" }}>
               {gr ? "Νομικά" : "Legal"}

@@ -38,7 +38,7 @@ export function Experience() {
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(170deg, rgba(68,67,64,0.2) 0%, rgba(68,67,64,0.55) 100%)" }} />
-        <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 2.5rem clamp(3rem, 6vw, 5rem)", maxWidth: "1440px", margin: "0 auto" }}>
+        <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 2.5rem clamp(3rem, 6vw, 5rem)", maxWidth: "100%", margin: "0 auto" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
             <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(236,234,224,0.55)", marginBottom: "1rem" }}>
               Villa Romantica · {e.label}
@@ -52,7 +52,7 @@ export function Experience() {
 
       {/* Intro strip */}
       <div style={{ backgroundColor: "#ffffff", borderBottom: `1px solid ${BORDER}` }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "3.5rem 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "3.5rem 2.5rem" }}>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: "rgba(68,67,64,0.6)", fontWeight: 300, maxWidth: "680px" }}>
             {lang === "el"
               ? "Κάθε λεπτομέρεια στη Villa Romantica είναι βαθμονομημένη για ευκολία — από το πρωινό τραπέζι στην άκρη του νερού έως τη βραδινή σιωπή του Αιγαίου. Εδώ, η εμπειρία δεν είναι πρόγραμμα. Είναι ένα συναίσθημα."
@@ -66,7 +66,7 @@ export function Experience() {
 
       {/* ── Food & Drinks — Intro ── */}
       <section style={{ backgroundColor: "#ffffff", padding: "7rem 0" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +107,7 @@ export function Experience() {
 
       {/* ── Breakfast ── */}
       <section style={{ backgroundColor: "#eceae0", padding: "9rem 0" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "6rem", alignItems: "start" }}>
 
             {/* Images */}
@@ -173,7 +173,7 @@ export function Experience() {
 
       {/* ── Bar & Drinks ── */}
       <section style={{ backgroundColor: "#1e1d1b", padding: "9rem 0" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "6rem", alignItems: "start" }}>
 
             {/* Text + menu */}
@@ -232,7 +232,7 @@ export function Experience() {
 
       {/* ── Local Dining ── */}
       <section style={{ backgroundColor: "#ffffff", padding: "9rem 0" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
 
             {/* Images */}

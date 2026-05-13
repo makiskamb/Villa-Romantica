@@ -18,7 +18,7 @@ export function Rooms() {
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(170deg, rgba(68,67,64,0.2) 0%, rgba(68,67,64,0.55) 100%)" }} />
-        <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 2.5rem clamp(3rem, 6vw, 5rem)", maxWidth: "1440px", margin: "0 auto" }}>
+        <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 2.5rem clamp(3rem, 6vw, 5rem)", maxWidth: "100%", margin: "0 auto" }}>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export function Rooms() {
 
       {/* Intro text below hero */}
       <div style={{ backgroundColor: "#ffffff", borderBottom: "1px solid rgba(68,67,64,0.1)" }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "3.5rem 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "3.5rem 2.5rem" }}>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: "rgba(68,67,64,0.6)", fontWeight: 300, maxWidth: "680px" }}>
             Six suites named for the gods of Olympus, each opening to the Aegean. Every room is a balance of simplicity and warmth — whitewashed walls, handpicked linens, and a terrace or balcony that makes the sea feel entirely yours.
           </p>

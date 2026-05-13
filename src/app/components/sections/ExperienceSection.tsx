@@ -35,7 +35,7 @@ export function ExperienceSection() {
       </div>
 
       {/* Intro + 5 Experience Sections */}
-      <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "8rem 2.5rem 6rem" }}>
+      <div style={{ maxWidth: "100%", margin: "0 auto", padding: "8rem 2.5rem 6rem" }}>
 
         {/* Label + heading + intro */}
         <motion.div
@@ -103,7 +103,7 @@ export function ExperienceSection() {
 
       {/* Amenities strip — dark background */}
       <div style={{ backgroundColor: C }}>
-        <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "6rem 2.5rem" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "6rem 2.5rem" }}>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}

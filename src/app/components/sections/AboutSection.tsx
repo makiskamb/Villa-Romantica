@@ -19,7 +19,7 @@ export function AboutSection() {
 
   return (
     <section id="about" style={{ backgroundColor: "#ffffff", padding: "10rem 0" }}>
-      <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2.5rem" }}>
+      <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* Editorial two-column */}
         <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "start" }}>
