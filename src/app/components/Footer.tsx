@@ -318,9 +318,6 @@ export function Footer() {
           <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", letterSpacing: "0.15em", color: "rgba(236,234,224,0.18)", textTransform: "uppercase" }}>
             {f.copyright}
           </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", fontWeight: 300, color: "rgba(236,234,224,0.18)" }}>
-            {f.credit}
-          </p>
         </div>
       </div>
 

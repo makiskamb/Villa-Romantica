@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -5,21 +6,52 @@ const BANNER_IMG = "/photos/hero/hero-2.jpg";
 
 export function QuoteBanner() {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const imgRef     = useRef<HTMLImageElement>(null);
+
+  /* ── Parallax: image drifts at ~40% of scroll speed ── */
+  useEffect(() => {
+    const onScroll = () => {
+      const section = sectionRef.current;
+      const img     = imgRef.current;
+      if (!section || !img) return;
+
+      const rect     = section.getBoundingClientRect();
+      const windowH  = window.innerHeight;
+
+      // progress: -1 (below viewport) → 0 (centered) → 1 (above viewport)
+      const progress = (windowH / 2 - (rect.top + rect.height / 2)) / windowH;
+      img.style.transform = `translateY(${progress * 120}px)`;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <section style={{ position: "relative", height: "clamp(360px, 52vw, 640px)", overflow: "hidden" }}>
+    <section
+      ref={sectionRef}
+      style={{ position: "relative", height: "80vh", overflow: "hidden" }}
+    >
+      {/* Full-width parallax image */}
       <img
+        ref={imgRef}
         src={BANNER_IMG}
         alt="Aegean sea"
         style={{
           position: "absolute",
-          inset: 0,
+          top: "-15%",
+          left: 0,
           width: "100%",
-          height: "100%",
+          height: "130%",
           objectFit: "cover",
           objectPosition: "center 55%",
+          willChange: "transform",
         }}
       />
+
+      {/* Overlay */}
       <div
         style={{
           position: "absolute",
@@ -27,6 +59,8 @@ export function QuoteBanner() {
           background: "linear-gradient(170deg, rgba(68,67,64,0.35) 0%, rgba(68,67,64,0.58) 100%)",
         }}
       />
+
+      {/* Content */}
       <div
         style={{
           position: "relative",
@@ -45,10 +79,8 @@ export function QuoteBanner() {
           viewport={{ once: true }}
           transition={{ duration: 1.1 }}
         >
-          {/* Top rule */}
           <div style={{ width: "1px", height: "54px", backgroundColor: "rgba(236,234,224,0.25)", margin: "0 auto 2.8rem" }} />
 
-          {/* Main slogan */}
           <h2
             style={{
               fontFamily: "'Cinzel', serif",
@@ -64,7 +96,6 @@ export function QuoteBanner() {
             {t.quote.text}
           </h2>
 
-          {/* Subtitle — softer, smaller */}
           <p
             style={{
               fontFamily: "'Inter', sans-serif",
@@ -80,7 +111,6 @@ export function QuoteBanner() {
             {t.hero.subtitle}
           </p>
 
-          {/* Bottom rule */}
           <div style={{ width: "40px", height: "1px", backgroundColor: "rgba(236,234,224,0.3)", margin: "2.8rem auto 0" }} />
         </motion.div>
       </div>

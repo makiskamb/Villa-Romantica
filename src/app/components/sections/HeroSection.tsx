@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import { useTransition } from "../../context/TransitionContext";
 
@@ -8,14 +9,27 @@ export function HeroSection() {
   const { t } = useLanguage();
   const h = t.hero;
   const { go } = useTransition();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  /* ── Parallax: video drifts up at 35% of scroll speed ── */
+  useEffect(() => {
+    const onScroll = () => {
+      if (videoRef.current) {
+        videoRef.current.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <section
       id="home"
       style={{ position: "relative", height: "100vh", minHeight: "600px", overflow: "hidden" }}
     >
-      {/* Video background */}
+      {/* Video background — taller than container so parallax never shows gaps */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
@@ -25,9 +39,11 @@ export function HeroSection() {
           position: "absolute",
           inset: 0,
           width: "100%",
-          height: "100%",
+          height: "115%",
+          top: "-7.5%",
           objectFit: "cover",
           objectPosition: "center",
+          willChange: "transform",
         }}
       >
         <source src={HERO_VIDEO} type="video/mp4" />

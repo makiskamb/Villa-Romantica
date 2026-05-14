@@ -54,7 +54,10 @@ export const rooms: RoomData[] = [
       { label: "Daily Housekeeping", labelGr: "Καθημερινή Καθαριότητα", icon: "sparkles" },
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
-    photos: Array.from({ length: 13 }, (_, i) => `/photos/rooms/zeus/zeus-${i + 1}.jpg`),
+    photos: [
+      "/photos/rooms/zeus/zeus-9.jpg",
+      ...Array.from({ length: 13 }, (_, i) => `/photos/rooms/zeus/zeus-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/zeus/zeus-9.jpg"),
+    ],
   },
   {
     slug: "athena",
@@ -87,7 +90,10 @@ export const rooms: RoomData[] = [
       { label: "Daily Housekeeping", labelGr: "Καθημερινή Καθαριότητα", icon: "sparkles" },
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
-    photos: Array.from({ length: 17 }, (_, i) => `/photos/rooms/athina/athina-${i + 1}.jpg`),
+    photos: [
+      "/photos/rooms/athina/athina-2.jpg",
+      ...Array.from({ length: 17 }, (_, i) => `/photos/rooms/athina/athina-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/athina/athina-2.jpg"),
+    ],
   },
   {
     slug: "artemis",
@@ -120,7 +126,10 @@ export const rooms: RoomData[] = [
       { label: "Daily Housekeeping", labelGr: "Καθημερινή Καθαριότητα", icon: "sparkles" },
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
-    photos: Array.from({ length: 10 }, (_, i) => `/photos/rooms/artemis/artemis-${i + 1}.jpg`),
+    photos: [
+      "/photos/rooms/artemis/artemis-5.jpg",
+      ...Array.from({ length: 10 }, (_, i) => `/photos/rooms/artemis/artemis-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/artemis/artemis-5.jpg"),
+    ],
   },
   {
     slug: "poseidon",
@@ -153,7 +162,10 @@ export const rooms: RoomData[] = [
       { label: "Daily Housekeeping", labelGr: "Καθημερινή Καθαριότητα", icon: "sparkles" },
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
-    photos: Array.from({ length: 19 }, (_, i) => `/photos/rooms/posidon/posidon-${i + 1}.jpg`),
+    photos: [
+      "/photos/rooms/posidon/posidon-4.jpg",
+      ...Array.from({ length: 19 }, (_, i) => `/photos/rooms/posidon/posidon-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/posidon/posidon-4.jpg"),
+    ],
   },
   {
     slug: "hera",
@@ -185,7 +197,10 @@ export const rooms: RoomData[] = [
       { label: "Daily Housekeeping", labelGr: "Καθημερινή Καθαριότητα", icon: "sparkles" },
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
-    photos: Array.from({ length: 12 }, (_, i) => `/photos/rooms/ira/ira-${i + 1}.jpg`),
+    photos: [
+      "/photos/rooms/ira/ira-5.jpg",
+      ...Array.from({ length: 12 }, (_, i) => `/photos/rooms/ira/ira-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/ira/ira-5.jpg"),
+    ],
   },
   {
     slug: "aphrodite",
@@ -217,7 +232,10 @@ export const rooms: RoomData[] = [
       { label: "Daily Housekeeping", labelGr: "Καθημερινή Καθαριότητα", icon: "sparkles" },
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
-    photos: Array.from({ length: 10 }, (_, i) => `/photos/rooms/aphrodite/aphrodite-${i + 1}.jpg`),
+    photos: [
+      "/photos/rooms/aphrodite/aphrodite-5.jpg",
+      ...Array.from({ length: 10 }, (_, i) => `/photos/rooms/aphrodite/aphrodite-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/aphrodite/aphrodite-5.jpg"),
+    ],
   },
 ];
 

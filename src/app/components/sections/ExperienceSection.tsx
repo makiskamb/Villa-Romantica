@@ -1,8 +1,10 @@
+import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import {
   Waves, Coffee, Wifi, Car, Wind, Umbrella, Sun, UtensilsCrossed,
 } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
+import { useParallax, useParallaxContainer } from "../../hooks/useParallax";
 
 const EXPERIENCE_IMG = "/photos/experience/experience-1.jpg";
 
@@ -12,8 +14,8 @@ const GRID_IMGS = [
   "/photos/experience/experience-7.jpg",
 ];
 
-const C = "#444340";
-const MUTED = "rgba(68,67,64,0.5)";
+const C      = "#444340";
+const MUTED  = "rgba(68,67,64,0.5)";
 const BORDER = "rgba(68,67,64,0.1)";
 const iconList = [Waves, Coffee, UtensilsCrossed, Wifi, Car, Wind, Umbrella, Sun];
 
@@ -21,15 +23,26 @@ export function ExperienceSection() {
   const { t } = useLanguage();
   const e = t.experience;
 
+  const heroImg   = useParallax(0.14);
+  const mosaicRef = useParallaxContainer();
+
   return (
     <section id="experience" style={{ backgroundColor: "#ffffff" }}>
 
       {/* Full-width hero image */}
       <div style={{ position: "relative", overflow: "hidden" }}>
         <img
+          ref={heroImg}
           src={EXPERIENCE_IMG}
           alt="Villa Romantica experience"
-          style={{ width: "100%", height: "clamp(340px, 52vw, 680px)", objectFit: "cover", display: "block" }}
+          style={{
+            width: "100%",
+            height: "calc(clamp(340px, 52vw, 680px) * 1.2)",
+            marginTop: "calc(clamp(340px, 52vw, 680px) * -0.1)",
+            objectFit: "cover",
+            display: "block",
+            willChange: "transform",
+          }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(68,67,64,0.6) 0%, transparent 55%)" }} />
       </div>
@@ -37,7 +50,6 @@ export function ExperienceSection() {
       {/* Intro + 5 Experience Sections */}
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "8rem 2.5rem 6rem" }}>
 
-        {/* Label + heading + intro */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +74,6 @@ export function ExperienceSection() {
           </div>
         </motion.div>
 
-        {/* 5 Experience Sections */}
         <div style={{ display: "flex", flexDirection: "column" }}>
           {e.sections.map((section, i) => (
             <motion.div
@@ -82,7 +93,6 @@ export function ExperienceSection() {
               }}
               className="exp-section-row"
             >
-              {/* Left: number + title */}
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.5rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(68,67,64,0.28)" }}>
                   0{i + 1}
@@ -91,8 +101,6 @@ export function ExperienceSection() {
                   {section.title}
                 </h3>
               </div>
-
-              {/* Right: description */}
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2, color: MUTED, fontWeight: 300, margin: 0 }}>
                 {section.desc}
               </p>
@@ -101,10 +109,9 @@ export function ExperienceSection() {
         </div>
       </div>
 
-      {/* Amenities strip — dark background */}
+      {/* Amenities strip */}
       <div style={{ backgroundColor: C }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "6rem 2.5rem" }}>
-
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -148,16 +155,16 @@ export function ExperienceSection() {
         </div>
       </div>
 
-      {/* Image mosaic row */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0" }} className="exp-mosaic">
+      {/* Image mosaic row — parallax via container */}
+      <div ref={mosaicRef} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0" }} className="exp-mosaic">
         {GRID_IMGS.map((src, i) => (
           <div key={i} style={{ overflow: "hidden" }}>
             <img
               src={src}
               alt="Villa Romantica experience"
-              style={{ width: "100%", height: "340px", objectFit: "cover", display: "block", transition: "transform 0.9s ease" }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.04)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
+              data-parallax
+              data-speed={[0.10, 0.14, 0.08][i]}
+              style={{ width: "100%", height: "408px", objectFit: "cover", display: "block", willChange: "transform" }}
             />
           </div>
         ))}
