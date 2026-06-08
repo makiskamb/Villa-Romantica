@@ -96,22 +96,35 @@ export function Navbar() {
             style={{
               position: "absolute", left: "50%", top: "50%",
               transform: "translateX(-50%) translateY(-50%)",
-              textDecoration: "none", display: "flex", alignItems: "center",
-              transition: "opacity 0.4s ease", cursor: "pointer",
+              textDecoration: "none", cursor: "pointer",
             }}
             onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.8"; }}
             onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
           >
-            <img
-              src={isHome && !scrolled ? "/logo-white.png" : "/VILLAROMANTICALOGO2026.png"}
-              alt="Villa Romantica"
-              style={{
-                height: "62px",
-                width: "auto",
-                objectFit: "contain",
-                transition: "opacity 0.5s ease",
-              }}
-            />
+            <div style={{ position: "relative", height: "62px", width: "160px" }}>
+              <img
+                src="/logo-white.png"
+                alt="Villa Romantica"
+                style={{
+                  position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)",
+                  height: "62px", width: "auto", objectFit: "contain",
+                  opacity: isHome && !scrolled ? 1 : 0,
+                  transition: "opacity 0.7s ease",
+                  pointerEvents: "none",
+                }}
+              />
+              <img
+                src="/VILLAROMANTICALOGO2026.png"
+                alt="Villa Romantica"
+                style={{
+                  position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)",
+                  height: "62px", width: "auto", objectFit: "contain",
+                  opacity: isHome && !scrolled ? 0 : 1,
+                  transition: "opacity 0.7s ease",
+                  pointerEvents: "none",
+                }}
+              />
+            </div>
           </a>
 
           {/* Right side */}
