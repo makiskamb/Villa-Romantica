@@ -9,11 +9,11 @@ const BORDER  = "rgba(68,67,64,0.1)";
 const BG_CREAM = "#eceae0";
 
 const roomImages = [
-  "/photos/rooms/zeus/zeus-9.jpg",
+  "/photos/rooms/zeus/zeus-2.jpg",
   "/photos/rooms/athina/athina-2.jpg",
   "/photos/rooms/artemis/artemis-5.jpg",
-  "/photos/rooms/posidon/posidon-4.jpg",
-  "/photos/rooms/ira/ira-5.jpg",
+  "/photos/rooms/posidon/posidon-18.jpg",
+  "/photos/rooms/ira/ira-1.jpg",
   "/photos/rooms/aphrodite/aphrodite-5.jpg",
 ];
 
@@ -23,7 +23,7 @@ const roomSpecs = [
   ["Sea View", "Private Balcony", "2 Double Beds", "Up to 4 Guests"],
   ["Sea & Garden View", "Private Balcony", "Double Bed + Kitchenette", "Up to 3 Guests"],
   ["Private Balcony", "Kitchenette", "2 Double Beds", "Up to 5 Guests"],
-  ["Sea & Garden View", "Private Balcony", "Kitchenette", "Up to 5 Guests"],
+  ["Sea & Garden View", "Private Balcony", "1 Double & 2 Single Beds", "Up to 5 Guests"],
   ["Private Balcony", "Double Bed", "—", "Up to 2 Guests"],
   ["Double Bed", "Essential Amenities", "—", "Up to 3 Guests"],
 ];
@@ -36,7 +36,7 @@ export function AccommodationSection() {
   const listingsRef = useParallaxContainer();
 
   return (
-    <section id="rooms" style={{ backgroundColor: BG_CREAM, padding: "10rem 0" }}>
+    <section id="rooms" style={{ backgroundColor: BG_CREAM, padding: "5rem 0 10rem" }}>
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* Header */}
@@ -56,6 +56,9 @@ export function AccommodationSection() {
           <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(2rem, 4vw, 3.2rem)", fontWeight: 400, color: C, lineHeight: 1.15, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "1.5rem" }}>
             {r.heading}
           </h2>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300, maxWidth: "680px", marginBottom: "1.25rem" }}>
+            Seven suites named for the gods of Olympus, each opening to the Aegean. Every room is a balance of simplicity and warmth — whitewashed walls, handpicked linens, and a terrace or balcony that makes the sea feel entirely yours.
+          </p>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300, maxWidth: "680px" }}>
             {r.intro}
           </p>
@@ -126,8 +129,12 @@ export function AccommodationSection() {
                 </div>
               </div>
 
-              {/* Right: image with parallax */}
-              <div style={{ overflow: "hidden" }} className="room-listing-img">
+              {/* Right: image with parallax + hover overlay */}
+              <div
+                onClick={() => go(`/rooms/${roomSlugs[i]}`)}
+                className="room-listing-img room-img-wrapper"
+                style={{ overflow: "hidden", position: "relative", cursor: "pointer" }}
+              >
                 <img
                   src={roomImages[i]}
                   alt={room.name}
@@ -135,6 +142,11 @@ export function AccommodationSection() {
                   data-speed="0.11"
                   style={{ width: "100%", height: "576px", objectFit: "cover", display: "block", willChange: "transform" }}
                 />
+                <div className="room-img-overlay">
+                  <div className="room-img-line" />
+                  <span className="room-img-label">View Suite</span>
+                  <div className="room-img-line" />
+                </div>
               </div>
             </motion.div>
           ))}
@@ -156,8 +168,45 @@ export function AccommodationSection() {
       </div>
 
       <style>{`
+        /* Hover overlay */
+        .room-img-overlay {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1.1rem;
+          background-color: rgba(68,67,64,0);
+          transition: background-color 0.5s ease;
+        }
+        .room-img-wrapper:hover .room-img-overlay {
+          background-color: rgba(68,67,64,0.48);
+        }
+        .room-img-label {
+          font-family: 'Cinzel', serif;
+          font-size: 0.62rem;
+          letter-spacing: 0.42em;
+          text-transform: uppercase;
+          color: rgba(236,234,224,0);
+          transition: color 0.5s ease 0.05s, letter-spacing 0.5s ease 0.05s;
+        }
+        .room-img-wrapper:hover .room-img-label {
+          color: rgba(236,234,224,0.95);
+          letter-spacing: 0.55em;
+        }
+        .room-img-line {
+          width: 0px;
+          height: 1px;
+          background-color: rgba(236,234,224,0.6);
+          transition: width 0.5s ease 0.05s;
+        }
+        .room-img-wrapper:hover .room-img-line {
+          width: 36px;
+        }
+
         @media (max-width: 768px) {
-.room-listing-row { grid-template-columns: 1fr !important; }
+          .room-listing-row { grid-template-columns: 1fr !important; }
           .room-listing-text { padding-right: 0 !important; margin-bottom: 2rem; }
           .room-listing-img img { height: 280px !important; }
         }

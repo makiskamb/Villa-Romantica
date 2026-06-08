@@ -1,9 +1,10 @@
 import { useParams } from "react-router";
-import { motion } from "motion/react";
+import { useEffect, useState, useCallback } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import {
   Sun, Eye, Wind, Wifi, Coffee, Waves, Sparkles,
   Droplets, Leaf, Star, Anchor, Wine, ArrowLeft,
-  Maximize2, Users,
+  Maximize2, Users, ChevronLeft, ChevronRight, X,
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useTransition } from "../context/TransitionContext";
@@ -29,6 +30,36 @@ export function RoomDetail() {
   const { go } = useTransition();
   const room = getRoomBySlug(slug ?? "");
 
+  // Compute gallery photos early so hooks can reference the length
+  const descPhotoCount = room?.descriptionPhotoCount ?? 2;
+  const galleryPhotos = room ? room.photos.slice(descPhotoCount >= 2 ? 3 : 2) : [];
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [slug]);
+
+  // Lightbox
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const openLightbox = useCallback((i: number) => setLightboxIndex(i), []);
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+  const lightboxPrev = useCallback(() => setLightboxIndex(i => i !== null ? (i - 1 + galleryPhotos.length) % galleryPhotos.length : null), [galleryPhotos.length]);
+  const lightboxNext = useCallback(() => setLightboxIndex(i => i !== null ? (i + 1) % galleryPhotos.length : null), [galleryPhotos.length]);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") lightboxPrev();
+      else if (e.key === "ArrowRight") lightboxNext();
+      else if (e.key === "Escape") closeLightbox();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightboxIndex, lightboxPrev, lightboxNext, closeLightbox]);
+
   if (!room) {
     return (
       <main style={{ minHeight: "80vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -52,8 +83,7 @@ export function RoomDetail() {
 
   const heroPhoto = room.photos[0];
   const secondPhoto = room.photos[1];
-  const thirdPhoto = room.photos[2];
-  const galleryPhotos = room.photos.slice(3);
+  const thirdPhoto = descPhotoCount >= 2 ? room.photos[2] : undefined;
 
   const otherRooms = rooms.filter((r) => r.slug !== room.slug).slice(0, 3);
 
@@ -146,7 +176,7 @@ export function RoomDetail() {
       </section>
 
       {/* ── Description ── */}
-      <section style={{ backgroundColor: "#ffffff", padding: "8rem 0" }}>
+      <section style={{ backgroundColor: "#ffffff", padding: room.descriptionPhotoCount === 1 ? "5rem 0" : "8rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="room-desc-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "6rem", alignItems: "start" }}>
 
@@ -245,23 +275,27 @@ export function RoomDetail() {
                   transition={{ duration: 0.8, delay: ri * 0.06 }}
                   style={{ display: "grid", gap: "0.5rem", gridTemplateColumns: row.cols }}
                 >
-                  {row.photos.map((src, pi) => (
-                    <div key={pi} style={{ overflow: "hidden" }}>
-                      <img
-                        src={src}
-                        alt={`${name} ${pi + 1}`}
-                        style={{
-                          width: "100%",
-                          height: `${row.height}px`,
-                          objectFit: "cover",
-                          display: "block",
-                          transition: "transform 0.8s ease",
-                        }}
-                        onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.04)"; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
-                      />
-                    </div>
-                  ))}
+                  {row.photos.map((src, pi) => {
+                    const globalIndex = galleryPhotos.indexOf(src);
+                    return (
+                      <div key={pi} style={{ overflow: "hidden", cursor: "zoom-in" }} onClick={() => openLightbox(globalIndex)}>
+                        <img
+                          src={src}
+                          alt={`${name} ${pi + 1}`}
+                          style={{
+                            width: "100%",
+                            height: `${row.height}px`,
+                            objectFit: "cover",
+                            objectPosition: room.photoPositions?.[src] ?? "center",
+                            display: "block",
+                            transition: "transform 0.8s ease",
+                          }}
+                          onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.04)"; }}
+                          onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
+                        />
+                      </div>
+                    );
+                  })}
                 </motion.div>
               ))}
             </div>
@@ -312,7 +346,7 @@ export function RoomDetail() {
       </section>
 
       {/* ── Book CTA ── */}
-      <section style={{ backgroundColor: C, padding: "7rem 0" }}>
+      <section style={{ backgroundColor: C, padding: "4rem 0" }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -320,7 +354,7 @@ export function RoomDetail() {
           transition={{ duration: 0.9 }}
           style={{ textAlign: "center", padding: "0 2.5rem" }}
         >
-          <div style={{ width: "1px", height: "50px", backgroundColor: "rgba(236,234,224,0.15)", margin: "0 auto 3rem" }} />
+          <div style={{ width: "1px", height: "30px", backgroundColor: "rgba(236,234,224,0.15)", margin: "0 auto 2rem" }} />
           <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.38em", textTransform: "uppercase", color: "rgba(236,234,224,0.4)", marginBottom: "1.5rem" }}>
             {tag}
           </p>
@@ -354,7 +388,7 @@ export function RoomDetail() {
               {lang === "el" ? "Όλες οι Σουίτες" : "All Suites"}
             </button>
           </div>
-          <div style={{ width: "1px", height: "50px", backgroundColor: "rgba(236,234,224,0.15)", margin: "3rem auto 0" }} />
+          <div style={{ width: "1px", height: "30px", backgroundColor: "rgba(236,234,224,0.15)", margin: "2rem auto 0" }} />
         </motion.div>
       </section>
 
@@ -418,6 +452,100 @@ export function RoomDetail() {
           </div>
         </div>
       </section>
+
+      {/* ── Lightbox ── */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={closeLightbox}
+            style={{
+              position: "fixed", inset: 0, zIndex: 1000,
+              backgroundColor: "rgba(20,19,18,0.94)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              padding: "2rem",
+            }}
+          >
+            {/* Close */}
+            <button
+              onClick={closeLightbox}
+              style={{
+                position: "absolute", top: "1.5rem", right: "1.75rem",
+                background: "none", border: "none", cursor: "pointer",
+                color: "rgba(236,234,224,0.6)", transition: "color 0.2s ease",
+                display: "flex", alignItems: "center", padding: "0.5rem",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#eceae0"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(236,234,224,0.6)"; }}
+            >
+              <X size={22} strokeWidth={1.5} />
+            </button>
+
+            {/* Prev */}
+            <button
+              onClick={(e) => { e.stopPropagation(); lightboxPrev(); }}
+              style={{
+                position: "absolute", left: "1.5rem", top: "50%", transform: "translateY(-50%)",
+                background: "none", border: "1px solid rgba(236,234,224,0.15)", cursor: "pointer",
+                color: "rgba(236,234,224,0.6)", width: "44px", height: "44px",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                transition: "border-color 0.2s ease, color 0.2s ease",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(236,234,224,0.5)"; e.currentTarget.style.color = "#eceae0"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(236,234,224,0.15)"; e.currentTarget.style.color = "rgba(236,234,224,0.6)"; }}
+            >
+              <ChevronLeft size={18} strokeWidth={1.5} />
+            </button>
+
+            {/* Image */}
+            <motion.img
+              key={lightboxIndex}
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{ duration: 0.22 }}
+              src={galleryPhotos[lightboxIndex]}
+              alt={name}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                maxWidth: "min(90vw, 1200px)",
+                maxHeight: "85vh",
+                objectFit: "contain",
+                display: "block",
+                boxShadow: "0 24px 80px rgba(0,0,0,0.5)",
+              }}
+            />
+
+            {/* Next */}
+            <button
+              onClick={(e) => { e.stopPropagation(); lightboxNext(); }}
+              style={{
+                position: "absolute", right: "1.5rem", top: "50%", transform: "translateY(-50%)",
+                background: "none", border: "1px solid rgba(236,234,224,0.15)", cursor: "pointer",
+                color: "rgba(236,234,224,0.6)", width: "44px", height: "44px",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                transition: "border-color 0.2s ease, color 0.2s ease",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(236,234,224,0.5)"; e.currentTarget.style.color = "#eceae0"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(236,234,224,0.15)"; e.currentTarget.style.color = "rgba(236,234,224,0.6)"; }}
+            >
+              <ChevronRight size={18} strokeWidth={1.5} />
+            </button>
+
+            {/* Counter */}
+            <p style={{
+              position: "absolute", bottom: "1.5rem", left: "50%", transform: "translateX(-50%)",
+              fontFamily: "'Cinzel', serif", fontSize: "0.5rem", letterSpacing: "0.3em",
+              textTransform: "uppercase", color: "rgba(236,234,224,0.35)",
+            }}>
+              {lightboxIndex + 1} / {galleryPhotos.length}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <style>{`
         @media (max-width: 1024px) {

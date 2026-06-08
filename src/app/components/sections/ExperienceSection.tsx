@@ -29,26 +29,9 @@ export function ExperienceSection() {
   return (
     <section id="experience" style={{ backgroundColor: "#ffffff" }}>
 
-      {/* Full-width hero image */}
-      <div style={{ position: "relative", overflow: "hidden" }}>
-        <img
-          ref={heroImg}
-          src={EXPERIENCE_IMG}
-          alt="Villa Romantica experience"
-          style={{
-            width: "100%",
-            height: "calc(clamp(340px, 52vw, 680px) * 1.2)",
-            marginTop: "calc(clamp(340px, 52vw, 680px) * -0.1)",
-            objectFit: "cover",
-            display: "block",
-            willChange: "transform",
-          }}
-        />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(68,67,64,0.6) 0%, transparent 55%)" }} />
-      </div>
 
       {/* Intro + 5 Experience Sections */}
-      <div style={{ maxWidth: "100%", margin: "0 auto", padding: "8rem 2.5rem 6rem" }}>
+      <div style={{ maxWidth: "100%", margin: "0 auto", padding: "4rem 2.5rem 6rem" }}>
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -64,14 +47,12 @@ export function ExperienceSection() {
             <div style={{ flex: 1, height: "1px", backgroundColor: BORDER }} />
           </div>
 
-          <div className="exp-intro-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "end" }}>
-            <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(2rem, 4vw, 3.4rem)", fontWeight: 400, color: C, lineHeight: 1.15, letterSpacing: "0.06em", textTransform: "uppercase", margin: 0 }}>
-              {e.heading[0]}<br />{e.heading[1]}
-            </h2>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.92rem", lineHeight: 2, color: MUTED, fontWeight: 300, margin: 0 }}>
-              {e.intro}
-            </p>
-          </div>
+          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(2rem, 4vw, 3.4rem)", fontWeight: 400, color: C, lineHeight: 1.15, letterSpacing: "0.06em", textTransform: "uppercase", margin: "0 0 1.5rem" }}>
+            {e.heading[0]} {e.heading[1]}
+          </h2>
+          <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", letterSpacing: "0.18em", lineHeight: 2, color: "rgba(68,67,64,0.45)", fontWeight: 400, textTransform: "uppercase", margin: 0, maxWidth: "680px" }}>
+            {e.intro}
+          </p>
         </motion.div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -94,7 +75,7 @@ export function ExperienceSection() {
               className="exp-section-row"
             >
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.5rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(68,67,64,0.28)" }}>
+                <span style={{ fontFamily: "'Cinzel', serif", fontSize: "1.1rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(68,67,64,0.18)", fontWeight: 400 }}>
                   0{i + 1}
                 </span>
                 <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(0.9rem, 1.6vw, 1.2rem)", fontWeight: 400, color: C, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.3, margin: 0 }}>
@@ -107,6 +88,21 @@ export function ExperienceSection() {
             </motion.div>
           ))}
         </div>
+      </div>
+
+      {/* Image mosaic row — parallax via container */}
+      <div ref={mosaicRef} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0" }} className="exp-mosaic">
+        {GRID_IMGS.map((src, i) => (
+          <div key={i} style={{ overflow: "hidden" }}>
+            <img
+              src={src}
+              alt="Villa Romantica experience"
+              data-parallax
+              data-speed={[0.10, 0.14, 0.08][i]}
+              style={{ width: "100%", height: "408px", objectFit: "cover", display: "block", willChange: "transform" }}
+            />
+          </div>
+        ))}
       </div>
 
       {/* Amenities strip */}
@@ -153,21 +149,6 @@ export function ExperienceSection() {
             })}
           </div>
         </div>
-      </div>
-
-      {/* Image mosaic row — parallax via container */}
-      <div ref={mosaicRef} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0" }} className="exp-mosaic">
-        {GRID_IMGS.map((src, i) => (
-          <div key={i} style={{ overflow: "hidden" }}>
-            <img
-              src={src}
-              alt="Villa Romantica experience"
-              data-parallax
-              data-speed={[0.10, 0.14, 0.08][i]}
-              style={{ width: "100%", height: "408px", objectFit: "cover", display: "block", willChange: "transform" }}
-            />
-          </div>
-        ))}
       </div>
 
       <style>{`

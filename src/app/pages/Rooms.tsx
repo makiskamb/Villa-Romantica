@@ -34,15 +34,6 @@ export function Rooms() {
         </div>
       </section>
 
-      {/* Intro text below hero */}
-      <div style={{ backgroundColor: "#ffffff", borderBottom: "1px solid rgba(68,67,64,0.1)" }}>
-        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "3.5rem 2.5rem" }}>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: "rgba(68,67,64,0.6)", fontWeight: 300, maxWidth: "680px" }}>
-            Six suites named for the gods of Olympus, each opening to the Aegean. Every room is a balance of simplicity and warmth — whitewashed walls, handpicked linens, and a terrace or balcony that makes the sea feel entirely yours.
-          </p>
-        </div>
-      </div>
-
       <AccommodationSection />
     </main>
   );

@@ -20,6 +20,8 @@ export type RoomData = {
   quoteGr: string;
   amenities: { label: string; labelGr: string; icon: string }[];
   photos: string[];
+  descriptionPhotoCount?: number;
+  photoPositions?: Record<string, string>;
 };
 
 export const rooms: RoomData[] = [
@@ -29,7 +31,7 @@ export const rooms: RoomData[] = [
     nameGr: "Ζευς",
     tag: "Superior Suite",
     tagGr: "Σουπερίορ Σουίτα",
-    area: "—",
+    area: "65m²",
     view: "Sea View",
     viewGr: "Θέα Θάλασσας",
     beds: "2 Double Beds",
@@ -55,9 +57,14 @@ export const rooms: RoomData[] = [
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
     photos: [
+      "/photos/rooms/zeus/zeus-2.jpg",
+      "/photos/rooms/zeus/zeus-3.jpg",
       "/photos/rooms/zeus/zeus-9.jpg",
-      ...Array.from({ length: 13 }, (_, i) => `/photos/rooms/zeus/zeus-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/zeus/zeus-9.jpg"),
+      "/photos/rooms/zeus/zeus-10.jpg",
+      "/photos/rooms/zeus/zeus-11.jpg",
+      "/photos/rooms/zeus/zeus-13.jpg",
     ],
+    descriptionPhotoCount: 1,
   },
   {
     slug: "athena",
@@ -65,7 +72,7 @@ export const rooms: RoomData[] = [
     nameGr: "Αθηνά",
     tag: "Superior Double Room",
     tagGr: "Σουπερίορ Διπλό Δωμάτιο",
-    area: "—",
+    area: "45m²",
     view: "Sea & Garden View",
     viewGr: "Θέα Θάλασσας & Κήπου",
     beds: "Double Bed",
@@ -91,9 +98,21 @@ export const rooms: RoomData[] = [
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
     photos: [
-      "/photos/rooms/athina/athina-2.jpg",
-      ...Array.from({ length: 17 }, (_, i) => `/photos/rooms/athina/athina-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/athina/athina-2.jpg"),
+      "/photos/rooms/athina/athina-2.jpg",   // hero
+      "/photos/rooms/athina/athina-1.jpg",   // secondPhoto (Suite section)
+      // gallery
+      "/photos/rooms/athina/athina-4.jpg",
+      "/photos/rooms/athina/athina-5.jpg",
+      "/photos/rooms/athina/athina-6.jpg",
+      "/photos/rooms/athina/athina-7.jpg",
+      "/photos/rooms/athina/athina-9.jpg",
+      "/photos/rooms/athina/athina-10.jpg",
+      "/photos/rooms/athina/athina-12.jpg",
+      "/photos/rooms/athina/athina-14.jpg",
+      "/photos/rooms/athina/athina-15.jpg",
+      "/photos/rooms/athina/athina-17.jpg",
     ],
+    descriptionPhotoCount: 1,
   },
   {
     slug: "artemis",
@@ -101,7 +120,7 @@ export const rooms: RoomData[] = [
     nameGr: "Άρτεμις",
     tag: "Family Suite",
     tagGr: "Οικογενειακή Σουίτα",
-    area: "—",
+    area: "60m²",
     view: "Private Balcony",
     viewGr: "Ιδιωτικό Μπαλκόνι",
     beds: "2 Double Beds",
@@ -127,9 +146,15 @@ export const rooms: RoomData[] = [
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
     photos: [
-      "/photos/rooms/artemis/artemis-5.jpg",
-      ...Array.from({ length: 10 }, (_, i) => `/photos/rooms/artemis/artemis-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/artemis/artemis-5.jpg"),
+      "/photos/rooms/artemis/artemis-5.jpg",  // hero
+      "/photos/rooms/artemis/artemis-8.jpg",  // secondPhoto (Suite section, replaces artemis-1)
+      // gallery
+      "/photos/rooms/artemis/artemis-1.jpg",
+      "/photos/rooms/artemis/artemis-3.jpg",
+      "/photos/rooms/artemis/artemis-4.jpg",
+      "/photos/rooms/artemis/artemis-9.jpg",
     ],
+    descriptionPhotoCount: 1,
   },
   {
     slug: "poseidon",
@@ -137,11 +162,11 @@ export const rooms: RoomData[] = [
     nameGr: "Ποσειδών",
     tag: "Garden Family Suite",
     tagGr: "Οικογενειακή Σουίτα Κήπου",
-    area: "—",
+    area: "65m²",
     view: "Sea & Garden View",
     viewGr: "Θέα Θάλασσας & Κήπου",
-    beds: "Double Bed",
-    bedsGr: "Διπλό Κρεβάτι",
+    beds: "1 Double & 2 Single Beds",
+    bedsGr: "1 Διπλό & 2 Μονά Κρεβάτια",
     guests: "Up to 5 Guests",
     feature: "Kitchenette",
     featureGr: "Κουζινέτα",
@@ -154,6 +179,7 @@ export const rooms: RoomData[] = [
     amenities: [
       { label: "Sea & Garden View", labelGr: "Θέα Κήπου & Θάλασσας", icon: "eye" },
       { label: "Private Balcony", labelGr: "Ιδιωτικό Μπαλκόνι", icon: "sun" },
+      { label: "1 Double & 2 Single Beds", labelGr: "1 Διπλό & 2 Μονά Κρεβάτια", icon: "star" },
       { label: "Kitchenette", labelGr: "Κουζινέτα", icon: "coffee" },
       { label: "Air Conditioning", labelGr: "Κλιματισμός", icon: "wind" },
       { label: "Free WiFi", labelGr: "Δωρεάν WiFi", icon: "wifi" },
@@ -163,9 +189,21 @@ export const rooms: RoomData[] = [
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
     photos: [
+      "/photos/rooms/posidon/posidon-18.jpg",  // hero
+      "/photos/rooms/posidon/posidon-2.jpg",   // secondPhoto (Suite section, replaces posidon-1)
+      // gallery
+      "/photos/rooms/posidon/posidon-1.jpg",
+      "/photos/rooms/posidon/posidon-3.jpg",
       "/photos/rooms/posidon/posidon-4.jpg",
-      ...Array.from({ length: 19 }, (_, i) => `/photos/rooms/posidon/posidon-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/posidon/posidon-4.jpg"),
+      "/photos/rooms/posidon/posidon-5.jpg",
+      "/photos/rooms/posidon/posidon-6.jpg",
+      "/photos/rooms/posidon/posidon-10.jpg",
+      "/photos/rooms/posidon/posidon-12.jpg",
+      "/photos/rooms/posidon/posidon-13.jpg",
+      "/photos/rooms/posidon/posidon-16.jpg",
+      "/photos/rooms/posidon/posidon-17.jpg",
     ],
+    descriptionPhotoCount: 1,
   },
   {
     slug: "hera",
@@ -173,7 +211,7 @@ export const rooms: RoomData[] = [
     nameGr: "Ήρα",
     tag: "Double Room with Balcony",
     tagGr: "Διπλό Δωμάτιο με Μπαλκόνι",
-    area: "—",
+    area: "30m²",
     view: "Private Balcony",
     viewGr: "Ιδιωτικό Μπαλκόνι",
     beds: "Double Bed",
@@ -198,9 +236,19 @@ export const rooms: RoomData[] = [
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
     photos: [
+      "/photos/rooms/ira/ira-1.jpg",   // hero
+      "/photos/rooms/ira/ira-2.jpg",   // secondPhoto (Suite section)
+      // gallery (removed: ira-3, ira-6, ira-9, ira-10, ira-11)
+      "/photos/rooms/ira/ira-4.jpg",
       "/photos/rooms/ira/ira-5.jpg",
-      ...Array.from({ length: 12 }, (_, i) => `/photos/rooms/ira/ira-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/ira/ira-5.jpg"),
+      "/photos/rooms/ira/ira-7.jpg",
+      "/photos/rooms/ira/ira-8.jpg",
+      "/photos/rooms/ira/ira-12.jpg",
     ],
+    descriptionPhotoCount: 1,
+    photoPositions: {
+      "/photos/rooms/ira/ira-12.jpg": "center top",
+    },
   },
   {
     slug: "aphrodite",
@@ -208,7 +256,7 @@ export const rooms: RoomData[] = [
     nameGr: "Αφροδίτη",
     tag: "Double Room",
     tagGr: "Διπλό Δωμάτιο",
-    area: "—",
+    area: "30m²",
     view: "Garden View",
     viewGr: "Θέα Κήπου",
     beds: "Double Bed",
@@ -216,15 +264,14 @@ export const rooms: RoomData[] = [
     guests: "Up to 3 Guests",
     feature: "Essential Amenities",
     featureGr: "Βασικές Παροχές",
-    description: "A simple and functional room, offering a comfortable stay with all the essential elements in place. Ideal for those seeking a more straightforward option, while still enjoying the atmosphere and overall experience of the villa.",
-    descriptionGr: "Ένα απλό και λειτουργικό δωμάτιο, που προσφέρει μια άνετη διαμονή με όλα τα βασικά στοιχεία στη θέση τους. Ιδανικό για όσους αναζητούν μια πιο απλή επιλογή, απολαμβάνοντας παράλληλα την ατμόσφαιρα της βίλας.",
-    longDescription: "Aphrodite does not compete with the suites — it simply offers what it offers, honestly and well. A comfortable double room with clean lines, essential amenities, and the full benefit of the villa's shared spaces, garden, and beach. It is the option for those who understand that a holiday is not about the room. The room is where you sleep. Everything else is where you live.",
-    longDescriptionGr: "Η Αφροδίτη δεν ανταγωνίζεται τις σουίτες — απλά προσφέρει αυτό που προσφέρει, ειλικρινά και καλά. Ένα άνετο διπλό δωμάτιο με καθαρές γραμμές, βασικές παροχές και πλήρη πρόσβαση στους κοινόχρηστους χώρους, τον κήπο και την παραλία της βίλας.",
+    description: "Aphrodite is a bright and inviting double room designed with comfort and simplicity in mind. Featuring clean lines, quality amenities, and access to the villa's beautiful shared spaces, gardens, and beachfront setting, it provides a relaxing retreat where guests can fully embrace the atmosphere and beauty of their surroundings.",
+    descriptionGr: "Η Αφροδίτη είναι ένα φωτεινό και φιλόξενο διπλό δωμάτιο σχεδιασμένο με γνώμονα την άνεση και την απλότητα. Με καθαρές γραμμές, ποιοτικές παροχές και πρόσβαση στους υπέροχους κοινόχρηστους χώρους, κήπους και παραλία της βίλας, προσφέρει ένα χαλαρωτικό καταφύγιο.",
+    longDescription: "Aphrodite is a bright and inviting double room designed with comfort and simplicity in mind. Featuring clean lines, quality amenities, and access to the villa's beautiful shared spaces, gardens, and beachfront setting, it provides a relaxing retreat where guests can fully embrace the atmosphere and beauty of their surroundings.",
+    longDescriptionGr: "Η Αφροδίτη είναι ένα φωτεινό και φιλόξενο διπλό δωμάτιο σχεδιασμένο με γνώμονα την άνεση και την απλότητα. Με καθαρές γραμμές, ποιοτικές παροχές και πρόσβαση στους υπέροχους κοινόχρηστους χώρους, κήπους και παραλία της βίλας, προσφέρει ένα χαλαρωτικό καταφύγιο.",
     quote: '"The villa is the experience. The room is where you rest."',
     quoteGr: '"Η βίλα είναι η εμπειρία. Το δωμάτιο είναι εκεί που ξεκουράζεσαι."',
     amenities: [
       { label: "Double Bed", labelGr: "Διπλό Κρεβάτι", icon: "star" },
-      { label: "Garden View", labelGr: "Θέα Κήπου", icon: "leaf" },
       { label: "Air Conditioning", labelGr: "Κλιματισμός", icon: "wind" },
       { label: "Free WiFi", labelGr: "Δωρεάν WiFi", icon: "wifi" },
       { label: "Breakfast Included", labelGr: "Πρωινό Περιλαμβάνεται", icon: "coffee" },
@@ -233,9 +280,18 @@ export const rooms: RoomData[] = [
       { label: "En-Suite Bathroom", labelGr: "Ιδιωτικό Μπάνιο", icon: "droplets" },
     ],
     photos: [
-      "/photos/rooms/aphrodite/aphrodite-5.jpg",
-      ...Array.from({ length: 10 }, (_, i) => `/photos/rooms/aphrodite/aphrodite-${i + 1}.jpg`).filter(p => p !== "/photos/rooms/aphrodite/aphrodite-5.jpg"),
+      "/photos/rooms/aphrodite/aphrodite-5.jpg",  // hero
+      "/photos/rooms/aphrodite/aphrodite-2.jpg",  // secondPhoto (Suite section, replaces aphrodite-1)
+      // gallery (removed: aphrodite-3)
+      "/photos/rooms/aphrodite/aphrodite-1.jpg",
+      "/photos/rooms/aphrodite/aphrodite-4.jpg",
+      "/photos/rooms/aphrodite/aphrodite-6.jpg",
+      "/photos/rooms/aphrodite/aphrodite-7.jpg",
+      "/photos/rooms/aphrodite/aphrodite-8.jpg",
+      "/photos/rooms/aphrodite/aphrodite-9.jpg",
+      "/photos/rooms/aphrodite/aphrodite-10.jpg",
     ],
+    descriptionPhotoCount: 1,
   },
 ];
 

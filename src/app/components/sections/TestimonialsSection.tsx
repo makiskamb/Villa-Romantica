@@ -22,10 +22,12 @@ export function TestimonialsSection() {
   const { t } = useLanguage();
   const ts = t.testimonials;
 
-  const trackRef  = useRef<HTMLDivElement>(null);
+  const trackRef   = useRef<HTMLDivElement>(null);
   // All mutable drag state lives in a ref so it's always current inside native listeners
-  const dragRef   = useRef({ active: false, startX: 0, scrollLeft: SET_W });
-  const smoothRef = useRef(false); // prevents loop logic during arrow smooth-scroll
+  const dragRef    = useRef({ active: false, startX: 0, scrollLeft: SET_W });
+  const smoothRef  = useRef(false); // prevents loop logic during arrow smooth-scroll
+  const pausedRef  = useRef(false); // paused when hovering or dragging
+  const rafRef     = useRef<number>(0);
   const [dragging, setDragging] = useState(false);
 
   /* ── Infinite loop: keep scrollLeft inside the middle copy ── */
@@ -53,6 +55,22 @@ export function TestimonialsSection() {
     return () => el.removeEventListener("scroll", loop);
   }, []);
 
+  /* ── Auto-scroll ── */
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+
+    const tick = () => {
+      if (!pausedRef.current && !smoothRef.current) {
+        el.scrollLeft += 0.6;
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
+
   /* ── Arrow navigation (always targets middle copy, smooth) ── */
   const scrollArrow = (dir: "left" | "right") => {
     const el = trackRef.current;
@@ -71,6 +89,8 @@ export function TestimonialsSection() {
   };
 
   /* ── Mouse drag ── */
+  const onMouseLeaveTrack = () => { dragRef.current.active = false; setDragging(false); };
+
   const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = trackRef.current;
     if (!el) return;
@@ -95,8 +115,8 @@ export function TestimonialsSection() {
     width: "40px",
     height: "40px",
     borderRadius: "50%",
-    border: "1px solid rgba(236,234,224,0.15)",
-    backgroundColor: "rgba(236,234,224,0.1)",
+    border: "1px solid rgba(68,67,64,0.2)",
+    backgroundColor: "transparent",
     cursor: "pointer",
     display: "flex",
     alignItems: "center",
@@ -106,7 +126,7 @@ export function TestimonialsSection() {
   };
 
   return (
-    <section style={{ backgroundColor: "#444340", padding: "10rem 0", overflow: "hidden" }}>
+    <section style={{ backgroundColor: "#eceae0", padding: "10rem 0", overflow: "hidden" }}>
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* ── Header ── */}
@@ -118,14 +138,14 @@ export function TestimonialsSection() {
           style={{ marginBottom: "6rem" }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "2.5rem" }}>
-            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(236,234,224,0.35)", whiteSpace: "nowrap" }}>
+            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)", whiteSpace: "nowrap" }}>
               {ts.label}
             </span>
-            <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(236,234,224,0.1)" }} />
+            <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(68,67,64,0.12)" }} />
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "2rem" }}>
-            <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(2.2rem, 4.5vw, 3.6rem)", fontWeight: 400, color: "#eceae0", lineHeight: 1.15, letterSpacing: "0.06em", textTransform: "uppercase", maxWidth: "600px", margin: 0 }}>
+            <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(2.2rem, 4.5vw, 3.6rem)", fontWeight: 400, color: "#444340", lineHeight: 1.15, letterSpacing: "0.06em", textTransform: "uppercase", maxWidth: "600px", margin: 0 }}>
               {ts.heading[0]}<br />{ts.heading[1]}
             </h2>
 
@@ -133,20 +153,20 @@ export function TestimonialsSection() {
               <button
                 onClick={() => scrollArrow("left")}
                 style={arrowStyle}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(236,234,224,0.18)"; e.currentTarget.style.borderColor = "rgba(236,234,224,0.3)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(236,234,224,0.1)";  e.currentTarget.style.borderColor = "rgba(236,234,224,0.15)"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(68,67,64,0.08)"; e.currentTarget.style.borderColor = "rgba(68,67,64,0.35)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.borderColor = "rgba(68,67,64,0.2)"; }}
                 aria-label="Previous review"
               >
-                <ChevronLeft size={15} color="rgba(236,234,224,0.7)" strokeWidth={1.5} />
+                <ChevronLeft size={15} color="rgba(68,67,64,0.6)" strokeWidth={1.5} />
               </button>
               <button
                 onClick={() => scrollArrow("right")}
                 style={arrowStyle}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(236,234,224,0.18)"; e.currentTarget.style.borderColor = "rgba(236,234,224,0.3)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(236,234,224,0.1)";  e.currentTarget.style.borderColor = "rgba(236,234,224,0.15)"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(68,67,64,0.08)"; e.currentTarget.style.borderColor = "rgba(68,67,64,0.35)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.borderColor = "rgba(68,67,64,0.2)"; }}
                 aria-label="Next review"
               >
-                <ChevronRight size={15} color="rgba(236,234,224,0.7)" strokeWidth={1.5} />
+                <ChevronRight size={15} color="rgba(68,67,64,0.6)" strokeWidth={1.5} />
               </button>
             </div>
           </div>
@@ -155,10 +175,10 @@ export function TestimonialsSection() {
         {/* ── Infinite drag-scroll track ── */}
         <div
           ref={trackRef}
+          onMouseLeave={onMouseLeaveTrack}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
-          onMouseLeave={onMouseUp}
           style={{
             display: "flex",
             gap: "1.5rem",
@@ -177,27 +197,27 @@ export function TestimonialsSection() {
               style={{
                 flexShrink: 0,
                 width: "clamp(280px, 32vw, 380px)",
-                backgroundColor: "rgba(236,234,224,0.06)",
-                border: "1px solid rgba(236,234,224,0.09)",
+                backgroundColor: "#ffffff",
+                border: "1px solid rgba(68,67,64,0.1)",
                 padding: "2.5rem",
                 pointerEvents: dragging ? "none" : "auto",
               }}
             >
               <div style={{ display: "flex", gap: "3px", marginBottom: "1.75rem" }}>
                 {Array.from({ length: 5 }).map((_, si) => (
-                  <Star key={si} size={11} fill="rgba(236,234,224,0.6)" stroke="none" />
+                  <Star key={si} size={11} fill="rgba(68,67,64,0.5)" stroke="none" />
                 ))}
               </div>
 
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", fontWeight: 300, lineHeight: 1.9, color: "rgba(236,234,224,0.7)", marginBottom: "2rem" }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", fontWeight: 300, lineHeight: 1.9, color: "rgba(68,67,64,0.65)", marginBottom: "2rem" }}>
                 "{item.text}"
               </p>
 
-              <div style={{ borderTop: "1px solid rgba(236,234,224,0.09)", paddingTop: "1.25rem" }}>
-                <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.72rem", color: "rgba(236,234,224,0.85)", marginBottom: "0.3rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              <div style={{ borderTop: "1px solid rgba(68,67,64,0.1)", paddingTop: "1.25rem" }}>
+                <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.72rem", color: "#444340", marginBottom: "0.3rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
                   {item.name}
                 </p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.68rem", fontWeight: 300, letterSpacing: "0.06em", color: "rgba(236,234,224,0.35)" }}>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.68rem", fontWeight: 300, letterSpacing: "0.06em", color: "rgba(68,67,64,0.4)" }}>
                   {item.origin}
                 </p>
               </div>
@@ -211,7 +231,7 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, delay: 0.3 }}
-          style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.1rem, 2.5vw, 1.8rem)", fontWeight: 400, color: "rgba(236,234,224,0.14)", textAlign: "center", marginTop: "6rem", letterSpacing: "0.12em", textTransform: "uppercase" }}
+          style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.1rem, 2.5vw, 1.8rem)", fontWeight: 400, color: "rgba(68,67,64,0.12)", textAlign: "center", marginTop: "6rem", letterSpacing: "0.12em", textTransform: "uppercase" }}
         >
           {ts.quote}
         </motion.p>

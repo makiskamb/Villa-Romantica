@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { MapPin, Clock, Navigation } from "lucide-react";
+import { useNavigate } from "react-router";
 import { useLanguage } from "../../context/LanguageContext";
 
 const C = "#444340";
@@ -8,11 +9,12 @@ const BORDER = "rgba(68,67,64,0.1)";
 const iconMap = [MapPin, Clock, Navigation];
 
 export function LocationSection() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const l = t.location;
+  const go = useNavigate();
 
   return (
-    <section id="location" style={{ backgroundColor: "#ffffff", padding: "10rem 0" }}>
+    <section id="location" style={{ backgroundColor: "#ffffff", padding: "4rem 0 0" }}>
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* Label */}
@@ -113,45 +115,6 @@ export function LocationSection() {
               })}
             </div>
 
-            {/* Highlights */}
-            <div
-              style={{
-                borderTop: `1px solid ${BORDER}`,
-                paddingTop: "3rem",
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "2rem",
-              }}
-            >
-              {l.highlights.map((h) => (
-                <div key={h.label}>
-                  <p
-                    style={{
-                      fontFamily: "'Cinzel', serif",
-                      fontSize: "0.75rem",
-                      fontWeight: 500,
-                      color: C,
-                      marginBottom: "0.4rem",
-                      letterSpacing: "0.08em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {h.label}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: "0.75rem",
-                      color: MUTED,
-                      lineHeight: 1.65,
-                      fontWeight: 300,
-                    }}
-                  >
-                    {h.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
           </motion.div>
 
           {/* Map */}
@@ -165,7 +128,7 @@ export function LocationSection() {
             <div style={{ overflow: "hidden", border: `1px solid ${BORDER}` }}>
               <iframe
                 title="Villa Romantica Location"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=24.3149%2C40.8849%2C24.3949%2C40.9349&layer=mapnik&marker=40.9099%2C24.3549"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=24.2847%2C40.8625%2C24.3847%2C40.9225&layer=mapnik&marker=40.89248%2C24.33474"
                 width="100%"
                 height="480"
                 style={{ border: 0, display: "block", filter: "grayscale(60%) contrast(0.85) sepia(10%)" }}
@@ -200,6 +163,87 @@ export function LocationSection() {
           </motion.div>
         </div>
       </div>
+
+      {/* Highlights — full width */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9 }}
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          padding: "0 2.5rem",
+        }}
+      >
+        {l.highlights.map((h, i) => (
+          <div
+            key={h.label}
+            style={{
+              padding: "3rem 2rem",
+              borderLeft: i > 0 ? `1px solid ${BORDER}` : "none",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: "0.75rem",
+                fontWeight: 500,
+                color: C,
+                marginBottom: "0.4rem",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+              }}
+            >
+              {h.label}
+            </p>
+            <p
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "0.75rem",
+                color: MUTED,
+                lineHeight: 1.65,
+                fontWeight: 300,
+              }}
+            >
+              {h.desc}
+            </p>
+          </div>
+        ))}
+      </motion.div>
+
+      {/* CTA */}
+      <section style={{ backgroundColor: "#eceae0", padding: "3.5rem 0" }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+          style={{ textAlign: "center", padding: "0 2.5rem" }}
+        >
+          <div style={{ width: "1px", height: "30px", backgroundColor: "rgba(68,67,64,0.15)", margin: "0 auto 2rem" }} />
+          <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.5rem", letterSpacing: "0.38em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)", marginBottom: "1.5rem" }}>
+            Villa Romantica
+          </p>
+          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 4vw, 3.2rem)", fontWeight: 400, color: C, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "1rem" }}>
+            {lang === "el" ? "Βρείτε τον Δρόμο σας" : "Find Your Way Here"}
+          </h2>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300, maxWidth: "480px", margin: "0 auto 3rem" }}>
+            {lang === "el"
+              ? "Είμαστε εδώ για να σας βοηθήσουμε να φτάσετε — και να νιώσετε σαν στο σπίτι σας από τη στιγμή που θα φτάσετε."
+              : "We're here to help you arrive — and feel at home from the moment you do."}
+          </p>
+          <button
+            onClick={() => go("/contact")}
+            style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#eceae0", backgroundColor: C, border: "none", cursor: "pointer", padding: "1rem 3rem", transition: "opacity 0.3s ease" }}
+            onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.8"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+          >
+            {lang === "el" ? "Επικοινωνήστε μαζί μας" : "Get In Touch"}
+          </button>
+          <div style={{ width: "1px", height: "40px", backgroundColor: "rgba(68,67,64,0.15)", margin: "2.5rem auto 0" }} />
+        </motion.div>
+      </section>
     </section>
   );
 }
