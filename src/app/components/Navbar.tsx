@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
+import { Instagram, Facebook, Phone, Mail } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useTransition } from "../context/TransitionContext";
 
@@ -102,7 +103,7 @@ export function Navbar() {
             onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
           >
             <img
-              src={isHome && !scrolled ? "/logo-white.png" : "/logo-color.png"}
+              src={isHome && !scrolled ? "/logo-white.png" : "/VILLAROMANTICALOGO2026.png"}
               alt="Villa Romantica"
               style={{
                 height: "62px",
@@ -164,8 +165,8 @@ export function Navbar() {
       <div
         style={{
           position: "fixed", top: 0, left: 0, bottom: 0, zIndex: 201,
-          width: "clamp(320px, 40vw, 480px)",
-          backgroundColor: "#444340",
+          width: "clamp(280px, 32vw, 400px)",
+          backgroundColor: "#eceae0",
           transform: menuOpen ? "translateX(0)" : "translateX(-100%)",
           transition: "transform 0.6s cubic-bezier(0.76, 0, 0.24, 1)",
           display: "flex", flexDirection: "column",
@@ -187,14 +188,7 @@ export function Navbar() {
             <img
               src="/logo-white.png"
               alt="Villa Romantica"
-              style={{ height: "88px", width: "auto", objectFit: "contain" }}
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-                const span = document.createElement("span");
-                span.textContent = "Villa Romantica";
-                span.style.cssText = "font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.2em;color:#eceae0;text-transform:uppercase;";
-                e.currentTarget.parentElement?.appendChild(span);
-              }}
+              style={{ height: "88px", width: "auto", objectFit: "contain", filter: "invert(0.76) opacity(0.7)" }}
             />
           </a>
           <button
@@ -202,11 +196,11 @@ export function Navbar() {
             aria-label="Close menu"
             style={{
               background: "none", border: "none", cursor: "pointer",
-              color: "rgba(236,234,224,0.7)", fontSize: "1.4rem",
+              color: "rgba(68,67,64,0.5)", fontSize: "1.4rem",
               fontWeight: 300, lineHeight: 1, padding: "0.25rem", transition: "color 0.3s ease",
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = "#eceae0"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(236,234,224,0.7)"; }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = "#444340"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(68,67,64,0.5)"; }}
           >
             ×
           </button>
@@ -229,10 +223,10 @@ export function Navbar() {
                   fontWeight: 400,
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
-                  color: active ? "#eceae0" : "rgba(236,234,224,0.4)",
+                  color: active ? "#444340" : "rgba(68,67,64,0.35)",
                   textDecoration: "none",
                   padding: "1rem 0",
-                  borderBottom: "1px solid rgba(236,234,224,0.07)",
+                  borderBottom: "1px solid rgba(68,67,64,0.08)",
                   cursor: "pointer",
                   opacity: menuOpen ? 1 : 0,
                   transform: menuOpen ? "translateX(0)" : "translateX(-14px)",
@@ -240,8 +234,8 @@ export function Navbar() {
                     ? `opacity 0.5s ease ${delay}ms, transform 0.5s ease ${delay}ms, color 0.3s ease`
                     : "opacity 0.15s ease, transform 0.15s ease, color 0.3s ease",
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#eceae0"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = active ? "#eceae0" : "rgba(236,234,224,0.4)"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#444340"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = active ? "#444340" : "rgba(68,67,64,0.35)"; }}
               >
                 {link.label}
               </a>
@@ -255,7 +249,7 @@ export function Navbar() {
           return (
             <div
               style={{
-                paddingTop: "3rem", borderTop: "1px solid rgba(236,234,224,0.1)",
+                paddingTop: "3rem", borderTop: "1px solid rgba(68,67,64,0.1)",
                 opacity: menuOpen ? 1 : 0,
                 transform: menuOpen ? "translateX(0)" : "translateX(-14px)",
                 transition: menuOpen
@@ -263,17 +257,46 @@ export function Navbar() {
                   : "opacity 0.15s ease, transform 0.15s ease",
               }}
             >
-              <div style={{ display: "flex", gap: "1.5rem", marginBottom: "2rem" }}>
-                <button onClick={() => setLang("en")} style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: lang === "en" ? "#eceae0" : "rgba(236,234,224,0.35)", background: "none", border: "none", cursor: "pointer", padding: 0, transition: "color 0.3s ease" }}>English</button>
-                <span style={{ color: "rgba(236,234,224,0.2)", alignSelf: "center" }}>·</span>
-                <button onClick={() => setLang("el")} style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: lang === "el" ? "#eceae0" : "rgba(236,234,224,0.35)", background: "none", border: "none", cursor: "pointer", padding: 0, transition: "color 0.3s ease" }}>Ελληνικά</button>
+              {/* Icons */}
+              <div style={{ display: "flex", gap: "2.75rem", marginBottom: "1.5rem", alignItems: "center" }}>
+                {[
+                  { href: "tel:+302510441902", Icon: Phone },
+                  { href: "mailto:info@villaromantica.gr", Icon: Mail },
+                  { href: "https://www.facebook.com/villaromantica.gr", Icon: Facebook },
+                  { href: "https://www.instagram.com/villaromantica_", Icon: Instagram },
+                ].map(({ href, Icon }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "rgba(68,67,64,0.4)",
+                      transition: "color 0.3s ease",
+                      textDecoration: "none",
+                      display: "flex", alignItems: "center",
+                    }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#444340"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(68,67,64,0.4)"; }}
+                  >
+                    <Icon size={15} strokeWidth={1.5} />
+                  </a>
+                ))}
               </div>
+
+              {/* Language */}
+              <div style={{ display: "flex", gap: "1.5rem", marginBottom: "2rem" }}>
+                <button onClick={() => setLang("en")} style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: lang === "en" ? "#444340" : "rgba(68,67,64,0.35)", background: "none", border: "none", cursor: "pointer", padding: 0, transition: "color 0.3s ease" }}>English</button>
+                <span style={{ color: "rgba(68,67,64,0.2)", alignSelf: "center" }}>·</span>
+                <button onClick={() => setLang("el")} style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: lang === "el" ? "#444340" : "rgba(68,67,64,0.35)", background: "none", border: "none", cursor: "pointer", padding: 0, transition: "color 0.3s ease" }}>Ελληνικά</button>
+              </div>
+
               <button
                 onClick={() => nav("/contact")}
                 style={{
                   display: "inline-block", fontFamily: "'Cinzel', serif", fontSize: "0.6rem",
                   letterSpacing: "0.2em", textTransform: "uppercase",
-                  color: "#444340", backgroundColor: "#eceae0",
+                  color: "#eceae0", backgroundColor: "#444340",
                   border: "none", cursor: "pointer",
                   padding: "0.9rem 2rem", transition: "opacity 0.3s ease",
                 }}

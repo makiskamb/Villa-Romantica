@@ -60,7 +60,7 @@ export function LocationSection() {
                 marginBottom: "2rem",
               }}
             >
-              {l.heading[0]}<br />{l.heading[1]}
+              {l.sectionHeading[0]}<br />{l.sectionHeading[1]}
             </h2>
 
             <p

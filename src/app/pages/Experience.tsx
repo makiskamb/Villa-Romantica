@@ -14,6 +14,7 @@ const BREAKFAST_IMG_2 = "/photos/gallery/gallery-9.jpg";
 const BAR_IMG         = "/photos/experience/experience-7.jpg";
 const QUOTE_IMG       = "/photos/experience/experience-6.jpg";
 const BEACH_IMG       = "/photos/gallery/gallery-12.jpg";
+const EVENTS_IMG      = "/photos/gallery/gallery-16.jpg";
 const LOCAL_IMG_1     = "/photos/gallery/gallery-5.jpg";
 const LOCAL_IMG_2     = "/photos/experience/experience-3.jpg";
 
@@ -29,6 +30,7 @@ export function Experience() {
   const barImg     = useParallax(0.12);
   const quoteImg   = useParallax(0.16);
   const beachImg   = useParallax(0.14);
+  const eventsImg  = useParallax(0.12);
   const localImg1  = useParallax(0.11);
   const localImg2  = useParallax(0.13);
 
@@ -65,25 +67,8 @@ export function Experience() {
       <ExperienceSection />
 
       {/* ── Food & Breakfast ── */}
-      <section style={{ backgroundColor: "#eceae0", padding: "9rem 0" }}>
+      <section style={{ backgroundColor: "#eceae0", padding: "7rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
-
-          {/* Section intro */}
-          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
-            style={{ marginBottom: "6rem" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", marginBottom: "3rem" }}>
-              <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)", whiteSpace: "nowrap" }}>
-                {d.introLabel}
-              </span>
-              <div style={{ flex: 1, height: "1px", backgroundColor: BORDER }} />
-            </div>
-            <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(2rem, 4vw, 3.4rem)", fontWeight: 400, color: C, lineHeight: 1.15, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "1.5rem" }}>
-              {d.introHeading[0]} {d.introHeading[1]}
-            </h2>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300, maxWidth: "600px" }}>
-              {d.introP}
-            </p>
-          </motion.div>
 
           {/* Breakfast grid */}
           <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "6rem", alignItems: "start" }}>
@@ -95,16 +80,9 @@ export function Experience() {
                 <img ref={breakfast1} src={BREAKFAST_IMG_1} alt="Breakfast"
                   style={{ width: "100%", height: "456px", objectFit: "cover", display: "block", willChange: "transform" }} />
               </div>
-              <div style={{ overflow: "hidden" }}>
+              <div style={{ overflow: "hidden", gridColumn: "1 / -1" }}>
                 <img ref={breakfast2} src={BREAKFAST_IMG_2} alt="Local produce"
                   style={{ width: "100%", height: "264px", objectFit: "cover", display: "block", willChange: "transform" }} />
-              </div>
-              <div style={{ backgroundColor: C, padding: "2rem", display: "flex", flexDirection: "column", justifyContent: "center", minHeight: "264px" }}>
-                {d.breakfastItems.map((item: string, i: number) => (
-                  <p key={i} style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(236,234,224,0.6)", lineHeight: 2.2, margin: 0 }}>
-                    {item}
-                  </p>
-                ))}
               </div>
             </motion.div>
 
@@ -119,6 +97,7 @@ export function Experience() {
               <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 400, color: C, lineHeight: 1.2, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "2rem" }}>
                 {d.breakfastHeading[0]}<br />{d.breakfastHeading[1]}
               </h2>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300, marginBottom: "1.5rem" }}>{d.introP}</p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300, marginBottom: "1.5rem" }}>{d.breakfastP1}</p>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300 }}>{d.breakfastP2}</p>
             </motion.div>
@@ -143,20 +122,8 @@ export function Experience() {
                 {d.barHeading[0]}<br />{d.barHeading[1]}
               </h2>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: "rgba(236,234,224,0.5)", fontWeight: 300, marginBottom: "1.5rem" }}>{d.barP1}</p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: "rgba(236,234,224,0.5)", fontWeight: 300, marginBottom: "3.5rem" }}>{d.barP2}</p>
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                {d.barItems.map((item: { name: string; desc: string }, i: number) => (
-                  <motion.div key={item.name} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.1 }}
-                    style={{ padding: "1.5rem 0", borderTop: "1px solid rgba(236,234,224,0.07)", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "2rem" }}>
-                    <div>
-                      <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#eceae0", marginBottom: "0.4rem" }}>{item.name}</p>
-                      <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem", color: "rgba(236,234,224,0.38)", fontWeight: 300, lineHeight: 1.7 }}>{item.desc}</p>
-                    </div>
-                    <div style={{ width: "1px", height: "32px", backgroundColor: "rgba(236,234,224,0.1)", flexShrink: 0, marginTop: "4px" }} />
-                  </motion.div>
-                ))}
-                <div style={{ paddingTop: "1.5rem", borderTop: "1px solid rgba(236,234,224,0.07)" }} />
-              </div>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: "rgba(236,234,224,0.5)", fontWeight: 300, marginBottom: "1.5rem" }}>{d.barP2}</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: "rgba(236,234,224,0.5)", fontWeight: 300 }}>{d.barP3}</p>
             </motion.div>
 
             {/* Image */}
@@ -222,14 +189,68 @@ export function Experience() {
               </h2>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300, marginBottom: "1.5rem" }}>
                 {lang === "el"
-                  ? "Η παραλία της Villa Romantica είναι ιδιωτική — αυτό σημαίνει ότι ο χώρος είναι δικός σας. Ξαπλώστρες, σκίαστρα και η θάλασσα ακριβώς μπροστά σας, χωρίς ανησυχίες."
-                  : "The beach at Villa Romantica is private — which means the space is yours. Sun loungers, shade, and the sea directly in front of you, without the crowd. The water here is clear, calm, and cold in the way that Aegean water always is."}
+                  ? "Μερικές από τις καλύτερες καλοκαιρινές στιγμές είναι συχνά οι πιο απλές. Ένα ήσυχο πρωινό κολύμπι, ένα βιβλίο κάτω από τον ήλιο, ο ήχος των κυμάτων και πουθενά αλλού να χρειάζεται να είσαι."
+                  : "Some of the best summer moments are often the simplest. A quiet morning swim, a book under the sun, the sound of the waves and nowhere else you need to be."}
               </p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300 }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300, marginBottom: "1.5rem" }}>
                 {lang === "el"
-                  ? "Το νερό εδώ είναι διαυγές, ήρεμο και δροσερό με τον τρόπο που είναι πάντα το Αιγαίο. Μπορείτε να κολυμπάτε το πρωί πριν φτάσει κανείς άλλος, ή να μείνετε μέχρι το σούρουπο."
-                  : "You can swim in the morning before anyone else arrives, or stay until dusk. The beach bar is steps away when you need it. The sea is always there when you do not."}
+                  ? "Αποκλειστικά για τους επισκέπτες μας, η ιδιωτική παραλία της Villa Romantica προσφέρει μια αίσθηση άνεσης και ιδιωτικότητας που γίνεται όλο και πιο σπάνια. Περιτριγυρισμένη από κρυστάλλινα νερά και αδιάκοπες θέες στη θάλασσα, δημιουργεί το τέλειο σκηνικό για να επιβραδύνεις και να επανασυνδεθείς με την ουσία του καλοκαιριού."
+                  : "Reserved exclusively for our guests, the private beach of Villa Romantica offers a sense of ease and privacy that is becoming increasingly rare. Surrounded by crystal-clear waters and uninterrupted sea views, it creates the perfect setting to slow down and reconnect with the essence of summer."}
               </p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300, marginBottom: "2rem" }}>
+                {lang === "el"
+                  ? "Για όσους επιθυμούν να εξερευνήσουν πέρα από την ακτή, κανό είναι διαθέσιμα καθ' όλη τη διάρκεια της ημέρας, προσφέροντας έναν μοναδικό τρόπο να βιώσεις την ακτογραμμή και την ομορφιά της θάλασσας από διαφορετική οπτική γωνία."
+                  : "For those who wish to explore beyond the shore, canoes are available throughout the day, offering a unique way to experience the coastline and the beauty of the sea from a different perspective."}
+              </p>
+              <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.75rem", lineHeight: 2, color: "rgba(68,67,64,0.4)", letterSpacing: "0.08em" }}>
+                {lang === "el"
+                  ? "«Μια εμπειρία διαμορφωμένη από ελευθερία, ηρεμία και την απλή πολυτέλεια να έχεις τη θάλασσα σχεδόν εξ ολοκλήρου για τον εαυτό σου.»"
+                  : '"An experience shaped by freedom, tranquility and the simple luxury of having the sea almost entirely to yourself."'}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Special Events ── */}
+      <section style={{ backgroundColor: "#1e1d1b", padding: "9rem 0" }}>
+        <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
+          <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "6rem", alignItems: "center" }}>
+
+            {/* Text */}
+            <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", marginBottom: "3rem" }}>
+                <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(236,234,224,0.25)", whiteSpace: "nowrap" }}>
+                  {lang === "el" ? "Ειδικές Εκδηλώσεις" : "Special Events"}
+                </span>
+                <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(236,234,224,0.08)" }} />
+              </div>
+              <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 400, color: "#eceae0", lineHeight: 1.2, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "2rem" }}>
+                {lang === "el" ? <>Βράδια Αξέχαστα,<br />Στιγμές για Πάντα</> : <>Evenings Worth<br />Staying For</>}
+              </h2>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: "rgba(236,234,224,0.5)", fontWeight: 300, marginBottom: "1.5rem" }}>
+                {lang === "el"
+                  ? "Καθ' όλη τη διάρκεια της σεζόν, η Villa Romantica φιλοξενεί μια επιλογή από προσεκτικά επιμελημένες εκδηλώσεις που ενσωματώνονται φυσικά στην ατμόσφαιρα του χώρου. Ζωντανή μουσική, θεματικές συγκεντρώσεις και ειδικά καλοκαιρινά βραδινά πάρτι φέρνουν κοντά ανθρώπους από διαφορετικά μέρη και βιώματα."
+                  : "Throughout the season, Villa Romantica hosts a selection of carefully curated events that blend naturally with the atmosphere of the space. Live music, themed gatherings and special summer evening parties bring together people from different places and walks of life, united by a shared appreciation for beautiful surroundings, good company and memorable experiences."}
+              </p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: "rgba(236,234,224,0.5)", fontWeight: 300, marginBottom: "1.5rem" }}>
+                {lang === "el"
+                  ? "Πάντα σεβόμενες την αισθητική και το πνεύμα της βίλας, αυτές οι στιγμές προσθέτουν μια διαφορετική διάσταση στην εμπειρία — δημιουργώντας βράδια γεμάτα ενέργεια, σύνδεση και το αναλλοίωτο αίσθημα του καλοκαιριού δίπλα στη θάλασσα."
+                  : "Always respectful of the villa's aesthetic and spirit, these moments add a different dimension to the experience — creating evenings filled with energy, connection and the unmistakable feeling of summer by the sea."}
+              </p>
+              <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.75rem", lineHeight: 2, color: "rgba(236,234,224,0.25)", letterSpacing: "0.08em" }}>
+                {lang === "el"
+                  ? "«Για όσους αναζητούν κάτι λίγο διαφορετικό — αυτά είναι τα βράδια που αξίζει να μείνεις.»"
+                  : '"For those looking for something a little different, these are the nights worth staying for."'}
+              </p>
+            </motion.div>
+
+            {/* Image */}
+            <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.1 }}>
+              <div style={{ overflow: "hidden" }}>
+                <img ref={eventsImg} src={EVENTS_IMG} alt="Special Events"
+                  style={{ width: "100%", height: "560px", objectFit: "cover", display: "block", willChange: "transform" }} />
+              </div>
             </motion.div>
           </div>
         </div>

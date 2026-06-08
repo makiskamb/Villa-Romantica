@@ -11,9 +11,8 @@ export function Contact() {
       <section
         style={{
           paddingTop: "160px",
-          paddingBottom: "5rem",
+          paddingBottom: "0",
           backgroundColor: "#eceae0",
-          borderBottom: "1px solid rgba(68,67,64,0.1)",
         }}
       >
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>

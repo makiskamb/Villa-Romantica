@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Phone, Mail, MapPin, CheckCircle, Facebook } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle, Facebook, Instagram } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 
 const C = "#444340";
@@ -54,7 +54,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" style={{ backgroundColor: "#eceae0", padding: "10rem 0" }}>
+    <section id="contact" style={{ backgroundColor: "#eceae0", padding: "4rem 0 10rem" }}>
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* Label */}
@@ -119,7 +119,7 @@ export function ContactSection() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
               {[
-                { href: "tel:+302510441902", Icon: Phone, label: c.callLabel, text: "+30 2510 441902 / 441201" },
+                { href: "tel:+302510441902", Icon: Phone, label: c.callLabel, text: "+30 2510 441902\n+30 2510 441201" },
                 { href: "mailto:info@villaromantica.gr", Icon: Mail, label: c.emailLabel, text: "info@villaromantica.gr" },
               ].map(({ href, Icon, label, text }) => (
                 <a
@@ -142,7 +142,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <p style={labelStyle}>{label}</p>
-                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", color: C, fontWeight: 300 }}>
+                    <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", color: C, fontWeight: 300, whiteSpace: "pre-line", lineHeight: 1.8 }}>
                       {text}
                     </p>
                   </div>
@@ -167,8 +167,8 @@ export function ContactSection() {
                   <p style={labelStyle}>{c.addressLabel}</p>
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", color: C, lineHeight: 1.65, fontWeight: 300 }}>
                     {lang === "el"
-                      ? <><br />Μελίνας Μερκούρη 193<br />Παλιό, Καβάλα, Ελλάδα</>
-                      : <><br />Melinas Merkouri 193<br />Palio, Kavala, Greece</>}
+                      ? <>Μελίνας Μερκούρη 193<br />Παλιό, Καβάλα, Ελλάδα</>
+                      : <>Melinas Merkouri 193<br />Palio, Kavala, Greece</>}
                   </p>
                 </div>
               </div>
@@ -199,6 +199,36 @@ export function ContactSection() {
                   <p style={labelStyle}>{c.facebookLabel}</p>
                   <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", color: C, fontWeight: 300 }}>
                     facebook.com/villaromantica.gr
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href="https://www.instagram.com/villaromantica_"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "flex", alignItems: "flex-start", gap: "1.25rem", textDecoration: "none" }}
+              >
+                <div
+                  style={{
+                    width: "38px",
+                    height: "38px",
+                    backgroundColor: C,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                    transition: "background-color 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#E1306C"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = C; }}
+                >
+                  <Instagram size={14} color="#eceae0" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p style={labelStyle}>{c.instagramLabel}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", color: C, fontWeight: 300 }}>
+                    @villaromantica_
                   </p>
                 </div>
               </a>

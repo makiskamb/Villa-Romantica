@@ -9,9 +9,9 @@ import { useParallax, useParallaxContainer } from "../../hooks/useParallax";
 const EXPERIENCE_IMG = "/photos/experience/experience-1.jpg";
 
 const GRID_IMGS = [
-  "/photos/experience/experience-3.jpg",
-  "/photos/experience/experience-5.jpg",
-  "/photos/experience/experience-7.jpg",
+  "/photos/experience/experience-9.jpg",
+  "/photos/experience/experience-8.jpg",
+  "/photos/experience/experience-10.jpg",
 ];
 
 const C      = "#444340";
@@ -93,13 +93,13 @@ export function ExperienceSection() {
       {/* Image mosaic row — parallax via container */}
       <div ref={mosaicRef} style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0" }} className="exp-mosaic">
         {GRID_IMGS.map((src, i) => (
-          <div key={i} style={{ overflow: "hidden" }}>
+          <div key={i} style={{ overflow: "hidden", height: "408px", position: "relative" }}>
             <img
               src={src}
               alt="Villa Romantica experience"
               data-parallax
               data-speed={[0.10, 0.14, 0.08][i]}
-              style={{ width: "100%", height: "408px", objectFit: "cover", display: "block", willChange: "transform" }}
+              style={{ width: "100%", height: "130%", top: "-15%", position: "absolute", objectFit: "cover", display: "block", willChange: "transform" }}
             />
           </div>
         ))}
