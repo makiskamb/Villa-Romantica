@@ -110,6 +110,26 @@ export function TestimonialsSection() {
     dragRef.current.active = false;
   };
 
+  /* ── Touch support ── */
+  const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    const el = trackRef.current;
+    if (!el) return;
+    pausedRef.current = true;
+    dragRef.current = { active: true, startX: e.touches[0].pageX, scrollLeft: el.scrollLeft };
+  };
+
+  const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!dragRef.current.active || !trackRef.current) return;
+    const walk = (e.touches[0].pageX - dragRef.current.startX) * 1.4;
+    trackRef.current.scrollLeft = dragRef.current.scrollLeft - walk;
+  };
+
+  const onTouchEnd = () => {
+    dragRef.current.active = false;
+    // Small delay so momentum doesn't fight auto-scroll resuming
+    setTimeout(() => { pausedRef.current = false; }, 1000);
+  };
+
   /* ── Arrow button style ── */
   const arrowStyle: React.CSSProperties = {
     width: "40px",
@@ -126,7 +146,7 @@ export function TestimonialsSection() {
   };
 
   return (
-    <section style={{ backgroundColor: "#eceae0", padding: "10rem 0", overflow: "hidden" }}>
+    <section className="testimonials-section" style={{ backgroundColor: "#eceae0", padding: "10rem 0", overflow: "hidden" }}>
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* ── Header ── */}
@@ -135,6 +155,7 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
+          className="testimonials-header"
           style={{ marginBottom: "6rem" }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "2.5rem" }}>
@@ -175,10 +196,14 @@ export function TestimonialsSection() {
         {/* ── Infinite drag-scroll track ── */}
         <div
           ref={trackRef}
+          className="testimonials-track"
           onMouseLeave={onMouseLeaveTrack}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
           style={{
             display: "flex",
             gap: "1.5rem",
@@ -189,6 +214,7 @@ export function TestimonialsSection() {
             cursor: dragging ? "grabbing" : "grab",
             userSelect: "none",
             WebkitUserSelect: "none",
+            WebkitOverflowScrolling: "touch" as never,
           }}
         >
           {display.map((item, i) => (
@@ -237,7 +263,14 @@ export function TestimonialsSection() {
         </motion.p>
       </div>
 
-      <style>{`div::-webkit-scrollbar { display: none; }`}</style>
+      <style>{`
+        div::-webkit-scrollbar { display: none; }
+        @media (max-width: 768px) {
+          .testimonials-track > div { width: 85vw !important; }
+          .testimonials-section { padding: 5rem 0 !important; }
+          .testimonials-header { margin-bottom: 3rem !important; }
+        }
+      `}</style>
     </section>
   );
 }
