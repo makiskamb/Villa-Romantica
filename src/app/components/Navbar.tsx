@@ -102,24 +102,13 @@ export function Navbar() {
             onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
           >
             <img
-              src="/logo-white.png"
+              src={isHome && !scrolled ? "/logo-white.png" : "/logo-color.png"}
               alt="Villa Romantica"
               style={{
                 height: "62px",
                 width: "auto",
                 objectFit: "contain",
-                transition: "filter 0.6s ease, opacity 0.5s ease",
-                filter: transparent ? "none" : "invert(1) brightness(0.267)",
-              }}
-              onError={(e) => {
-                const parent = e.currentTarget.parentElement;
-                if (parent) {
-                  e.currentTarget.style.display = "none";
-                  const fallback = document.createElement("span");
-                  fallback.textContent = "Villa Romantica";
-                  fallback.style.cssText = `font-family:'Cinzel',serif;font-size:1rem;font-weight:500;letter-spacing:0.2em;color:${transparent ? "#ffffff" : "#444340"};text-transform:uppercase;white-space:nowrap;`;
-                  parent.appendChild(fallback);
-                }
+                transition: "opacity 0.5s ease",
               }}
             />
           </a>

@@ -10,20 +10,20 @@ export function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: "#1e1d1b",
-        color: "rgba(236,234,224,0.45)",
+        backgroundColor: "#eceae0",
+        color: "#3d3d3d",
         padding: "4rem 0 1.5rem",
       }}
     >
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
-        {/* Top grid */}
+        {/* Top grid: Brand | Featured On | Explore | Contact */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr",
+            gridTemplateColumns: "2fr 0.9fr 1fr 1fr",
             gap: "3rem",
             paddingBottom: "3rem",
-            borderBottom: "1px solid rgba(236,234,224,0.07)",
+            borderBottom: "1px solid rgba(61,61,61,0.15)",
           }}
           className="grid-footer"
         >
@@ -33,25 +33,18 @@ export function Footer() {
               <img
                 src="/logo-white.png"
                 alt="Villa Romantica"
-                style={{ height: "110px", width: "auto", objectFit: "contain", display: "block" }}
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                  const h2 = document.createElement("h2");
-                  h2.textContent = "Villa Romantica";
-                  h2.style.cssText = "font-family:'Cinzel',serif;font-size:1.4rem;font-weight:400;color:#eceae0;letter-spacing:0.18em;text-transform:uppercase;margin:0 0 1rem;";
-                  e.currentTarget.parentElement?.appendChild(h2);
-                }}
+                style={{ height: "110px", width: "auto", objectFit: "contain", display: "block", filter: "invert(0.76) opacity(0.7)" }}
               />
             </div>
             {/* Slogan */}
             <p
               style={{
                 fontFamily: "'Cinzel', serif",
-                fontSize: "clamp(0.9rem, 1.6vw, 1.2rem)",
+                fontSize: "clamp(1.4rem, 2.8vw, 2.2rem)",
                 fontWeight: 400,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "rgba(236,234,224,0.7)",
+                color: "#3d3d3d",
                 lineHeight: 1.2,
                 marginBottom: "1rem",
               }}
@@ -68,7 +61,7 @@ export function Footer() {
                 textTransform: "uppercase",
                 lineHeight: 2,
                 marginBottom: "2.5rem",
-                color: "rgba(236,234,224,0.28)",
+                color: "#3d3d3d",
                 whiteSpace: "pre-line",
                 maxWidth: "280px",
               }}
@@ -85,9 +78,9 @@ export function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: "rgba(236,234,224,0.3)", transition: "color 0.2s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#eceae0")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(236,234,224,0.3)")}
+                  style={{ color: "#3d3d3d", transition: "color 0.2s" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#3d3d3d")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#3d3d3d")}
                 >
                   <Icon size={16} strokeWidth={1.5} />
                 </a>
@@ -97,9 +90,9 @@ export function Footer() {
                 href="https://share.google/uuTqazWigWPdl1B9i"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: "rgba(236,234,224,0.3)", transition: "color 0.2s", display: "flex", alignItems: "center" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#eceae0")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(236,234,224,0.3)")}
+                style={{ color: "#3d3d3d", transition: "color 0.2s", display: "flex", alignItems: "center" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#3d3d3d")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#3d3d3d")}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10" />
@@ -110,6 +103,79 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Featured On — own column */}
+          <div>
+            <h4
+              style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: "0.55rem",
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "#3d3d3d",
+                marginBottom: "2rem",
+              }}
+            >
+              Featured On
+            </h4>
+            <a
+              href="https://www.athensvoice.gr/life/taxidia/859703/kavala-villa-romantica/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "inline-flex", alignItems: "center", marginBottom: "2rem" }}
+            >
+              <img
+                src="/athens voice logo.png"
+                alt="Athens Voice"
+                style={{
+                  height: "44px",
+                  width: "auto",
+                  objectFit: "contain",
+                  opacity: 0.7,
+                  filter: "brightness(0) saturate(0) opacity(0.7)",
+                  transition: "opacity 0.3s ease",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.7"; }}
+              />
+            </a>
+
+            {/* Booking.com badge */}
+            <h4
+              style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: "0.55rem",
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "#3d3d3d",
+                marginBottom: "1rem",
+              }}
+            >
+              Recognized Excellence
+            </h4>
+            <a
+              href="https://www.booking.com/Share-RZvlUf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: "inline-flex" }}
+            >
+              <img
+                src="/booking-badge.png"
+                alt="Booking.com 9.5"
+                style={{
+                  height: "72px",
+                  width: "auto",
+                  objectFit: "contain",
+                  opacity: 0.8,
+                  transition: "opacity 0.3s ease",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.8"; }}
+              />
+            </a>
+          </div>
+
           {/* Navigation */}
           <div>
             <h4
@@ -118,7 +184,7 @@ export function Footer() {
                 fontSize: "0.55rem",
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
-                color: "rgba(236,234,224,0.25)",
+                color: "#3d3d3d",
                 marginBottom: "2rem",
               }}
             >
@@ -133,15 +199,15 @@ export function Footer() {
                   style={{
                     fontFamily: "'Cinzel', serif",
                     fontSize: "0.7rem",
-                    color: "rgba(236,234,224,0.4)",
+                    color: "#3d3d3d",
                     textDecoration: "none",
                     transition: "color 0.2s",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                     cursor: "pointer",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#eceae0")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(236,234,224,0.4)")}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#3d3d3d")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#3d3d3d")}
                 >
                   {label}
                 </a>
@@ -157,7 +223,7 @@ export function Footer() {
                 fontSize: "0.55rem",
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
-                color: "rgba(236,234,224,0.25)",
+                color: "#3d3d3d",
                 marginBottom: "2rem",
               }}
             >
@@ -179,12 +245,12 @@ export function Footer() {
                     fontSize: "0.7rem",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    color: "rgba(236,234,224,0.4)",
+                    color: "#3d3d3d",
                     textDecoration: "none",
                     transition: "color 0.2s",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#eceae0")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(236,234,224,0.4)")}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#3d3d3d")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "#3d3d3d")}
                 >
                   <Icon size={13} strokeWidth={1.5} />
                   {text}
@@ -199,7 +265,7 @@ export function Footer() {
                   fontSize: "0.7rem",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color: "rgba(236,234,224,0.4)",
+                  color: "#3d3d3d",
                   lineHeight: 1.8,
                 }}
               >
@@ -222,13 +288,13 @@ export function Footer() {
                   fontSize: "0.7rem",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color: "rgba(236,234,224,0.4)",
+                  color: "#3d3d3d",
                   textDecoration: "none",
                   transition: "color 0.2s",
                   marginTop: "0.25rem",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#eceae0")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(236,234,224,0.4)")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#3d3d3d")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#3d3d3d")}
               >
                 <Facebook size={13} strokeWidth={1.5} />
                 {f.facebookLabel}
@@ -237,12 +303,12 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Featured On · Powered By · Legal */}
+        {/* Powered By · Legal */}
         <div
           style={{
             paddingTop: "1.75rem",
             paddingBottom: "1.75rem",
-            borderTop: "1px solid rgba(236,234,224,0.07)",
+            borderTop: "1px solid rgba(61,61,61,0.15)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -250,34 +316,18 @@ export function Footer() {
             gap: "1.5rem",
           }}
         >
-          {/* Featured On */}
+          {/* Powered By */}
           <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.5rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(236,234,224,0.22)", whiteSpace: "nowrap" }}>
-              Featured On
-            </span>
-            <a href="https://www.athensvoice.gr/life/taxidia/859703/kavala-villa-romantica/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center" }}>
-              <img
-                src="/athens voice logo.png"
-                alt="Athens Voice"
-                style={{ height: "28px", width: "auto", objectFit: "contain", opacity: 0.35, filter: "brightness(0) invert(1)", transition: "opacity 0.3s ease", cursor: "pointer" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.7"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.35"; }}
-              />
-            </a>
-          </div>
-
-          {/* Powered By — centre */}
-          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.5rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(236,234,224,0.22)", whiteSpace: "nowrap" }}>
+            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.5rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#3d3d3d", whiteSpace: "nowrap" }}>
               Powered By
             </span>
             <a href="https://www.mushroomdesign.gr/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center" }}>
               <img
                 src="/MUSHROOM_WHITE web.png"
                 alt="Mushroom Design"
-                style={{ height: "28px", width: "auto", objectFit: "contain", opacity: 0.35, transition: "opacity 0.3s ease", cursor: "pointer" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.7"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.35"; }}
+                style={{ height: "28px", width: "auto", objectFit: "contain", opacity: 0.5, filter: "brightness(0) saturate(0) opacity(0.7)", transition: "opacity 0.3s ease", cursor: "pointer" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.85"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.5"; }}
               />
             </a>
           </div>
@@ -289,13 +339,13 @@ export function Footer() {
               { label: "Terms & Conditions", href: "/terms" },
             ].map(({ label, href }, i) => (
               <span key={href} style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
-                {i > 0 && <span style={{ color: "rgba(236,234,224,0.12)", fontSize: "0.6rem" }}>·</span>}
+                {i > 0 && <span style={{ color: "rgba(61,61,61,0.2)", fontSize: "0.6rem" }}>·</span>}
                 <a
                   href={href}
                   onClick={(e) => { e.preventDefault(); go(href); }}
-                  style={{ fontFamily: "'Cinzel', serif", fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(236,234,224,0.22)", textDecoration: "none", transition: "color 0.2s ease", whiteSpace: "nowrap", cursor: "pointer" }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(236,234,224,0.55)"; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(236,234,224,0.22)"; }}
+                  style={{ fontFamily: "'Cinzel', serif", fontSize: "0.5rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#3d3d3d", textDecoration: "none", transition: "color 0.2s ease", whiteSpace: "nowrap", cursor: "pointer" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#444340"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#444340"; }}
                 >
                   {label}
                 </a>
@@ -315,17 +365,22 @@ export function Footer() {
             alignItems: "center",
           }}
         >
-          <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", letterSpacing: "0.15em", color: "rgba(236,234,224,0.18)", textTransform: "uppercase" }}>
+          <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", letterSpacing: "0.15em", color: "rgba(61,61,61,0.6)", textTransform: "uppercase" }}>
             {f.copyright}
           </p>
         </div>
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+          .grid-footer {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 3rem !important;
+          }
+        }
+        @media (max-width: 560px) {
           .grid-footer {
             grid-template-columns: 1fr !important;
-            gap: 3rem !important;
           }
         }
       `}</style>

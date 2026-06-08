@@ -10,10 +10,10 @@ const BG_CREAM = "#eceae0";
 
 const HERO_IMG   = "/photos/hero/hero-2.jpg";
 const STORY_IMGS = [
-  "/photos/gallery/gallery-4.jpg",
-  "/photos/gallery/gallery-6.jpg",
+  "/photos/gallery/gallery-17.jpg",
+  "/photos/gallery/gallery-18.jpg",
 ];
-const PLACE_IMG = "/photos/experience/experience-1.jpg";
+const PLACE_IMG = "/photos/gallery/gallery-19.jpg";
 
 export function About() {
   const { t } = useLanguage();
@@ -80,7 +80,7 @@ export function About() {
                 {a.storyQuote}
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: `1px solid ${BORDER}`, marginTop: "3.5rem", paddingTop: "2.5rem" }} className="about-stats">
-                {[{ value: "30+", label: "Years" }, { value: "6", label: "Suites" }, { value: "Palio", label: "Kavala" }, { value: "0m", label: "To the Sea" }].map((stat, i) => (
+                {[{ value: "30+", label: "Years" }, { value: "7", label: "Suites" }, { value: "Palio", label: "Kavala" }, { value: "0m", label: "To the Sea" }].map((stat, i) => (
                   <div key={stat.label} style={{ textAlign: "center", borderLeft: i > 0 ? `1px solid ${BORDER}` : "none", padding: "0 0.5rem" }}>
                     <p style={{ fontFamily: "'Cinzel', serif", fontSize: "1.8rem", fontWeight: 400, color: C, lineHeight: 1, marginBottom: "0.5rem", letterSpacing: "0.04em" }}>{stat.value}</p>
                     <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.5rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)" }}>{stat.label}</p>
@@ -92,13 +92,13 @@ export function About() {
             {/* Images */}
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.15 }}
               style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem" }}>
-              <div style={{ overflow: "hidden" }}>
+              <div style={{ overflow: "hidden", height: "408px" }}>
                 <img ref={storyImg0} src={STORY_IMGS[0]} alt="Villa Romantica"
-                  style={{ width: "100%", height: "408px", objectFit: "cover", display: "block", willChange: "transform" }} />
+                  style={{ width: "100%", height: "120%", marginTop: "-10%", objectFit: "cover", display: "block", willChange: "transform" }} />
               </div>
-              <div style={{ overflow: "hidden", marginTop: "2.5rem" }}>
+              <div style={{ overflow: "hidden", height: "408px" }}>
                 <img ref={storyImg1} src={STORY_IMGS[1]} alt="Aegean sea"
-                  style={{ width: "100%", height: "408px", objectFit: "cover", display: "block", willChange: "transform" }} />
+                  style={{ width: "100%", height: "120%", marginTop: "-10%", objectFit: "cover", display: "block", willChange: "transform" }} />
               </div>
             </motion.div>
           </div>
@@ -139,9 +139,9 @@ export function About() {
 
             {/* Image */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
-              style={{ overflow: "hidden" }}>
+              style={{ overflow: "hidden", height: "624px" }}>
               <img ref={placeImg} src={PLACE_IMG} alt="Palio, Kavala"
-                style={{ width: "100%", height: "624px", objectFit: "cover", display: "block", willChange: "transform" }} />
+                style={{ width: "100%", height: "120%", marginTop: "-10%", objectFit: "cover", display: "block", willChange: "transform" }} />
             </motion.div>
 
             {/* Text */}
@@ -156,27 +156,28 @@ export function About() {
                 {a.placeHeading[0]}<br />{a.placeHeading[1]}
               </h2>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300, marginBottom: "1.25rem" }}>{a.placeP1}</p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300 }}>{a.placeP2}</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300, marginBottom: "1.25rem" }}>{a.placeP2}</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300 }}>{(a as any).placeP3}</p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* ── CTA Banner ── */}
-      <section style={{ backgroundColor: "#444340", padding: "7rem 0" }}>
+      <section style={{ backgroundColor: "#dfb8b7", padding: "4rem 0" }}>
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
           style={{ textAlign: "center", padding: "0 2.5rem" }}>
-          <div style={{ width: "1px", height: "50px", backgroundColor: "rgba(236,234,224,0.2)", margin: "0 auto 3rem" }} />
-          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", fontWeight: 400, color: "#eceae0", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "2.5rem" }}>
+          <div style={{ width: "1px", height: "36px", backgroundColor: "rgba(236,234,224,0.4)", margin: "0 auto 2rem" }} />
+          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", fontWeight: 400, color: "#eceae0", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "2rem" }}>
             {a.ctaHeading}
           </h2>
           <button onClick={() => go("/contact")}
-            style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#444340", backgroundColor: "#eceae0", border: "none", cursor: "pointer", padding: "1rem 3rem", transition: "opacity 0.3s ease" }}
+            style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#dfb8b7", backgroundColor: "#eceae0", border: "none", cursor: "pointer", padding: "1rem 3rem", transition: "opacity 0.3s ease" }}
             onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.8"; }}
             onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}>
             {a.ctaButton}
           </button>
-          <div style={{ width: "1px", height: "50px", backgroundColor: "rgba(236,234,224,0.2)", margin: "3rem auto 0" }} />
+          <div style={{ width: "1px", height: "36px", backgroundColor: "rgba(236,234,224,0.4)", margin: "2rem auto 0" }} />
         </motion.div>
       </section>
 

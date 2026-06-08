@@ -1,11 +1,9 @@
 import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
-import { useLanguage } from "../../context/LanguageContext";
 
-const BANNER_IMG = "/photos/hero/hero-2.jpg";
+const BANNER_IMG = "/photos/gallery/gallery-16.jpg";
 
 export function QuoteBanner() {
-  const { t } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
   const imgRef     = useRef<HTMLImageElement>(null);
 
@@ -93,7 +91,7 @@ export function QuoteBanner() {
               margin: "0 0 1.6rem",
             }}
           >
-            {t.quote.text}
+            Makes you think of love
           </h2>
 
           <p
@@ -101,14 +99,14 @@ export function QuoteBanner() {
               fontFamily: "'Inter', sans-serif",
               fontSize: "clamp(0.72rem, 1.2vw, 0.9rem)",
               fontWeight: 300,
-              color: "rgba(236,234,224,0.48)",
+              color: "rgba(236,234,224,0.55)",
               letterSpacing: "0.04em",
               lineHeight: 1.7,
               maxWidth: "520px",
               margin: "0 auto",
             }}
           >
-            {t.hero.subtitle}
+            A place to slow down, breathe, and experience summer the way it should feel.
           </p>
 
           <div style={{ width: "40px", height: "1px", backgroundColor: "rgba(236,234,224,0.3)", margin: "2.8rem auto 0" }} />

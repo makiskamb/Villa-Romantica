@@ -72,33 +72,37 @@ export function HeroSection() {
           margin: "0 auto",
         }}
       >
-        {/* Heading + subtitle — ultra discreet */}
-        <div style={{ marginBottom: "2.2rem", maxWidth: "520px" }}>
+        {/* Heading */}
+        <div style={{ marginBottom: "2.2rem" }}>
           <p
             style={{
               fontFamily: "'Cinzel', serif",
-              fontSize: "clamp(0.65rem, 1.1vw, 0.85rem)",
+              fontSize: "clamp(2rem, 5vw, 4.2rem)",
               fontWeight: 400,
-              fontStyle: "italic",
-              color: "rgba(236,234,224,0.38)",
+              fontStyle: "normal",
+              color: "rgba(236,234,224,0.8)",
               letterSpacing: "0.06em",
-              marginBottom: "0.6rem",
-              lineHeight: 1.4,
+              marginBottom: 0,
+              lineHeight: 1,
+              textTransform: "uppercase",
             }}
           >
-            {h.heading}
+            THIS MUST BE
           </p>
           <p
             style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: "clamp(0.65rem, 0.9vw, 0.76rem)",
-              fontWeight: 300,
-              color: "rgba(236,234,224,0.22)",
-              lineHeight: 1.8,
-              letterSpacing: "0.01em",
+              fontFamily: "'Cinzel', serif",
+              fontSize: "clamp(2.8rem, 7.5vw, 6.5rem)",
+              fontWeight: 400,
+              fontStyle: "normal",
+              color: "rgba(236,234,224,0.8)",
+              letterSpacing: "0.06em",
+              margin: 0,
+              lineHeight: 1,
+              textTransform: "uppercase",
             }}
           >
-            {h.subtitle}
+            THE PLACE
           </p>
         </div>
 
@@ -111,20 +115,20 @@ export function HeroSection() {
               fontSize: "0.48rem",
               letterSpacing: "0.26em",
               textTransform: "uppercase",
-              color: "rgba(236,234,224,0.42)",
+              color: "rgba(236,234,224,0.8)",
               backgroundColor: "transparent",
-              border: "1px solid rgba(236,234,224,0.18)",
+              border: "1px solid rgba(236,234,224,0.5)",
               cursor: "pointer",
               padding: "0.75rem 2rem",
               transition: "color 0.4s ease, border-color 0.4s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = "rgba(236,234,224,0.78)";
-              e.currentTarget.style.borderColor = "rgba(236,234,224,0.45)";
+              e.currentTarget.style.color = "#eceae0";
+              e.currentTarget.style.borderColor = "rgba(236,234,224,0.9)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = "rgba(236,234,224,0.42)";
-              e.currentTarget.style.borderColor = "rgba(236,234,224,0.18)";
+              e.currentTarget.style.color = "rgba(236,234,224,0.8)";
+              e.currentTarget.style.borderColor = "rgba(236,234,224,0.5)";
             }}
           >
             {h.book}
@@ -137,15 +141,15 @@ export function HeroSection() {
               fontSize: "0.48rem",
               letterSpacing: "0.26em",
               textTransform: "uppercase",
-              color: "rgba(236,234,224,0.28)",
+              color: "rgba(236,234,224,0.8)",
               backgroundColor: "transparent",
               border: "none",
               cursor: "pointer",
               padding: "0.75rem 0.5rem",
               transition: "color 0.4s ease",
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = "rgba(236,234,224,0.65)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(236,234,224,0.28)"; }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = "#eceae0"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(236,234,224,0.8)"; }}
           >
             {h.explore}
           </button>

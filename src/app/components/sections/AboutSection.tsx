@@ -3,8 +3,8 @@ import { motion } from "motion/react";
 import { useLanguage } from "../../context/LanguageContext";
 
 const IMGS = [
-  "/photos/gallery/gallery-1.jpg",
-  "/photos/gallery/gallery-2.jpg",
+  "/photos/gallery/gallery-14.jpg",
+  "/photos/gallery/gallery-15.jpg",
   "/photos/gallery/gallery-3.jpg",
 ];
 
@@ -43,8 +43,6 @@ export function AboutSection() {
   const img1 = useParallax(0.15);
   const img2 = useParallax(0.08);
 
-  const keywords = ["Locally", "Simply", "Slowly"];
-
   return (
     <section id="about" style={{ backgroundColor: "#ffffff", padding: "10rem 0" }}>
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
@@ -64,17 +62,6 @@ export function AboutSection() {
                 {a.label}
               </span>
               <div style={{ flex: 1, height: "1px", backgroundColor: BORDER }} />
-            </div>
-
-            <div style={{ marginBottom: "3rem" }}>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", fontWeight: 300, letterSpacing: "0.2em", textTransform: "uppercase", color: MUTED, marginBottom: "0.5rem" }}>
-                We Live
-              </p>
-              {keywords.map((word) => (
-                <p key={word} style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.4rem, 2.5vw, 2rem)", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: C, lineHeight: 1.3 }}>
-                  We Live <span style={{ color: C }}>{word}</span>
-                </p>
-              ))}
             </div>
 
             <h2
