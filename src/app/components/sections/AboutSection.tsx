@@ -139,9 +139,14 @@ export function AboutSection() {
       <style>{`
         @media (max-width: 768px) {
           .about-grid { grid-template-columns: 1fr !important; gap: 3.5rem !important; }
-          .stats-inner { grid-template-columns: repeat(2, 1fr) !important; }
-          .stats-inner > div:nth-child(odd) { border-left: none !important; }
-          .stats-inner > div:nth-child(n+3) { border-top: 1px solid rgba(68,67,64,0.1); padding-top: 1.5rem; margin-top: 1rem; }
+          .stats-inner {
+            grid-template-columns: repeat(2, 1fr) !important;
+            row-gap: 2rem !important;
+          }
+          .stats-inner > div:nth-child(1) { border-left: none !important; }
+          .stats-inner > div:nth-child(2) { border-left: 1px solid rgba(68,67,64,0.1) !important; }
+          .stats-inner > div:nth-child(3) { border-left: none !important; border-top: 1px solid rgba(68,67,64,0.1) !important; padding-top: 2rem !important; }
+          .stats-inner > div:nth-child(4) { border-left: 1px solid rgba(68,67,64,0.1) !important; border-top: 1px solid rgba(68,67,64,0.1) !important; padding-top: 2rem !important; }
         }
       `}</style>
     </section>
