@@ -100,7 +100,7 @@ export function ContactSection() {
                 marginBottom: "2rem",
               }}
             >
-              {c.heading[0]}<br />{c.heading[1]}
+              {c.sectionHeading[0]}<br />{c.sectionHeading[1]}
             </h2>
 
             <p

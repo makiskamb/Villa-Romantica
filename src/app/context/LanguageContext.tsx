@@ -216,6 +216,7 @@ export const translations = {
     contact: {
       label: "Reserve Your Stay",
       heading: ["Begin Your", "Aegean Story"],
+      sectionHeading: ["Reserve Your", "Stay"],
       desc: "Whether you are ready to book or simply planning your stay, we are here to help you with anything you may need. Feel free to get in touch for availability, information or any special request.",
       callLabel: "Call Us",
       emailLabel: "Email",
@@ -475,6 +476,7 @@ export const translations = {
     contact: {
       label: "Κάντε Κράτηση",
       heading: ["Ξεκινήστε την", "Αιγαιακή σας Ιστορία"],
+      sectionHeading: ["Κάντε την", "Κράτησή σας"],
       desc: "Είτε είστε έτοιμοι να κλείσετε κράτηση ή απλώς σχεδιάζετε τη διαμονή σας, είμαστε εδώ για να σας βοηθήσουμε με ό,τι χρειαστείτε. Επικοινωνήστε ελεύθερα για διαθεσιμότητα, πληροφορίες ή οποιοδήποτε ειδικό αίτημα.",
       callLabel: "Καλέστε μας",
       emailLabel: "Email",
