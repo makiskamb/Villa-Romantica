@@ -31,9 +31,9 @@ export function Footer() {
           <div>
             <div style={{ marginBottom: "1.5rem" }}>
               <img
-                src="/logo-white.png"
+                src="/VILLAROMANTICALOGO2026.png"
                 alt="Villa Romantica"
-                style={{ height: "110px", width: "auto", objectFit: "contain", display: "block", filter: "invert(0.76) opacity(0.7)" }}
+                style={{ height: "110px", width: "auto", objectFit: "contain", display: "block" }}
               />
             </div>
             {/* Slogan */}
@@ -130,8 +130,7 @@ export function Footer() {
                   height: "44px",
                   width: "auto",
                   objectFit: "contain",
-                  opacity: 0.7,
-                  filter: "brightness(0) saturate(0) opacity(0.7)",
+                  opacity: 0.85,
                   transition: "opacity 0.3s ease",
                   cursor: "pointer",
                 }}
@@ -166,7 +165,6 @@ export function Footer() {
                   height: "72px",
                   width: "auto",
                   objectFit: "contain",
-                  opacity: 0.8,
                   transition: "opacity 0.3s ease",
                   cursor: "pointer",
                 }}
@@ -277,7 +275,7 @@ export function Footer() {
                 </span>
               </div>
               <a
-                href="https://www.facebook.com/villaromantica.gr"
+                href="https://www.instagram.com/villaromantica_"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -292,6 +290,28 @@ export function Footer() {
                   textDecoration: "none",
                   transition: "color 0.2s",
                   marginTop: "0.25rem",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#3d3d3d")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#3d3d3d")}
+              >
+                <Instagram size={13} strokeWidth={1.5} />
+                Instagram
+              </a>
+              <a
+                href="https://www.facebook.com/villaromantica.gr"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.65rem",
+                  fontFamily: "'Cinzel', serif",
+                  fontSize: "0.7rem",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "#3d3d3d",
+                  textDecoration: "none",
+                  transition: "color 0.2s",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#3d3d3d")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#3d3d3d")}

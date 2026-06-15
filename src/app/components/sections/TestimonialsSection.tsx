@@ -196,7 +196,7 @@ export function TestimonialsSection() {
           }}
         >
           {display.map((item, i) => (
-            <div key={i} style={{ flexShrink: 0, width: "clamp(280px, 32vw, 380px)", backgroundColor: "#ffffff", border: "1px solid rgba(68,67,64,0.1)", padding: "2.5rem", pointerEvents: dragging ? "none" : "auto" }}>
+            <div key={i} style={{ flexShrink: 0, width: "clamp(280px, 32vw, 380px)", backgroundColor: "#e4e2d8", border: "1px solid rgba(68,67,64,0.1)", padding: "2.5rem", pointerEvents: dragging ? "none" : "auto" }}>
               <div style={{ display: "flex", gap: "3px", marginBottom: "1.75rem" }}>
                 {Array.from({ length: 5 }).map((_, si) => (
                   <Star key={si} size={11} fill="rgba(68,67,64,0.5)" stroke="none" />

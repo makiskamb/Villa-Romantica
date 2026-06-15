@@ -27,7 +27,7 @@ export function ExperienceSection() {
   const mosaicRef = useParallaxContainer();
 
   return (
-    <section id="experience" style={{ backgroundColor: "#ffffff" }}>
+    <section id="experience" style={{ backgroundColor: "#eceae0" }}>
 
 
       {/* Intro + 5 Experience Sections */}

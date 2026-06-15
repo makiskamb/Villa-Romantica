@@ -176,7 +176,7 @@ export function RoomDetail() {
       </section>
 
       {/* ── Description ── */}
-      <section style={{ backgroundColor: "#ffffff", padding: room.descriptionPhotoCount === 1 ? "5rem 0" : "8rem 0" }}>
+      <section style={{ backgroundColor: "#eceae0", padding: room.descriptionPhotoCount === 1 ? "5rem 0" : "8rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="room-desc-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "6rem", alignItems: "start" }}>
 
@@ -304,7 +304,7 @@ export function RoomDetail() {
       )}
 
       {/* ── Amenities ── */}
-      <section style={{ backgroundColor: "#ffffff", padding: "8rem 0" }}>
+      <section style={{ backgroundColor: "#eceae0", padding: "8rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
             style={{ marginBottom: "4rem" }}>

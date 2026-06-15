@@ -8,7 +8,7 @@ const MUTED   = "rgba(68,67,64,0.55)";
 const BORDER  = "rgba(68,67,64,0.1)";
 const BG_CREAM = "#eceae0";
 
-const HERO_IMG   = "/photos/hero/hero-2.jpg";
+const HERO_IMG   = "/photos/about/about-hero-new.jpg";
 const STORY_IMGS = [
   "/photos/gallery/gallery-17.jpg",
   "/photos/gallery/gallery-18.jpg",
@@ -59,7 +59,7 @@ export function About() {
       </section>
 
       {/* ── Our Story ── */}
-      <section style={{ backgroundColor: "#ffffff", padding: "8rem 0" }}>
+      <section style={{ backgroundColor: "#eceae0", padding: "8rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="about-story-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
 
@@ -133,7 +133,7 @@ export function About() {
       </section>
 
       {/* ── The Place ── */}
-      <section style={{ backgroundColor: "#ffffff", padding: "8rem 0" }}>
+      <section style={{ backgroundColor: "#eceae0", padding: "8rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="about-place-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
 

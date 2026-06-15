@@ -8,15 +8,27 @@ const C      = "#444340";
 const MUTED  = "rgba(68,67,64,0.55)";
 const BORDER = "rgba(68,67,64,0.1)";
 
-const HERO_IMG        = "/photos/experience/experience-1.jpg";
-const BREAKFAST_IMG_1 = "/photos/experience/experience-4.jpg";
-const BREAKFAST_IMG_2 = "/photos/gallery/gallery-9.jpg";
-const BAR_IMG         = "/photos/experience/experience-7.jpg";
-const QUOTE_IMG       = "/photos/experience/experience-6.jpg";
-const BEACH_IMG       = "/photos/gallery/gallery-12.jpg";
-const EVENTS_IMG      = "/photos/gallery/gallery-16.jpg";
-const LOCAL_IMG_1     = "/photos/gallery/gallery-5.jpg";
-const LOCAL_IMG_2     = "/photos/experience/experience-3.jpg";
+const HERO_IMG        = "/photos/experience/experience-hero-2.jpg";
+const BREAKFAST_IMG_1 = "/photos/experience/food-1.jpg";
+const BREAKFAST_IMG_2 = "/photos/experience/food-2.jpg";
+const DRINKS_IMG_1    = "/photos/experience/drinks-1.jpg";
+const DRINKS_IMG_2    = "/photos/experience/drinks-2.jpg";
+const QUOTE_IMG       = "/photos/experience/cta-banner.jpg";
+const BEACH_IMG       = "/photos/experience/beach-new.jpg";
+const EVENTS_IMG      = "/photos/experience/events-new.jpg";
+
+const GALLERY_IMGS = [
+  "/photos/experience/gallery-1.jpg",
+  "/photos/experience/gallery-2.jpg",
+  "/photos/experience/gallery-3.jpg",
+  "/photos/experience/gallery-4.jpg",
+  "/photos/experience/gallery-5.jpg",
+  "/photos/experience/gallery-6.jpg",
+  "/photos/experience/gallery-7.jpg",
+  "/photos/experience/gallery-8.jpg",
+  "/photos/experience/gallery-9.jpg",
+  "/photos/experience/gallery-10.jpg",
+];
 
 export function Experience() {
   const { t, lang } = useLanguage();
@@ -27,12 +39,11 @@ export function Experience() {
   const heroImg    = useParallax(0.18);
   const breakfast1 = useParallax(0.10);
   const breakfast2 = useParallax(0.14);
-  const barImg     = useParallax(0.12);
+  const barImg1    = useParallax(0.12);
+  const barImg2    = useParallax(0.10);
   const quoteImg   = useParallax(0.16);
   const beachImg   = useParallax(0.14);
   const eventsImg  = useParallax(0.12);
-  const localImg1  = useParallax(0.11);
-  const localImg2  = useParallax(0.13);
 
   return (
     <main>
@@ -126,11 +137,16 @@ export function Experience() {
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: "rgba(236,234,224,0.5)", fontWeight: 300 }}>{d.barP3}</p>
             </motion.div>
 
-            {/* Image */}
-            <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.1 }}>
+            {/* Images */}
+            <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.1 }}
+              style={{ display: "grid", gap: "0.5rem" }}>
               <div style={{ overflow: "hidden" }}>
-                <img ref={barImg} src={BAR_IMG} alt="Bar & Cocktails"
-                  style={{ width: "100%", height: "552px", objectFit: "cover", display: "block", willChange: "transform" }} />
+                <img ref={barImg1} src={DRINKS_IMG_1} alt="Bar & Cocktails"
+                  style={{ width: "100%", height: "380px", objectFit: "cover", display: "block", willChange: "transform" }} />
+              </div>
+              <div style={{ overflow: "hidden" }}>
+                <img ref={barImg2} src={DRINKS_IMG_2} alt="Cocktails"
+                  style={{ width: "100%", height: "260px", objectFit: "cover", display: "block", willChange: "transform" }} />
               </div>
             </motion.div>
           </div>
@@ -156,8 +172,8 @@ export function Experience() {
             <div style={{ width: "1px", height: "40px", backgroundColor: "rgba(236,234,224,0.25)", margin: "0 auto 2rem" }} />
             <p style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1rem, 2.8vw, 2.2rem)", fontWeight: 400, color: "#ffffff", letterSpacing: "0.1em", textTransform: "uppercase", maxWidth: "680px", lineHeight: 1.6 }}>
               {lang === "el"
-                ? "«Ένα καλό ποτό πριν το ηλιοβασίλεμα δεν είναι πολυτέλεια — είναι υποχρέωση.»"
-                : '"A good drink before sunset is not a luxury — it is an obligation."'}
+                ? "«Ξύπνα. Κατέβα. Βούτα.»"
+                : '"Wake up. Walk down. Dive in."'}
             </p>
             <div style={{ width: "36px", height: "1px", backgroundColor: "rgba(236,234,224,0.35)", margin: "2rem auto 0" }} />
           </motion.div>
@@ -165,7 +181,7 @@ export function Experience() {
       </section>
 
       {/* ── Beach ── */}
-      <section style={{ backgroundColor: "#ffffff", padding: "9rem 0" }}>
+      <section style={{ backgroundColor: "#eceae0", padding: "9rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
 
@@ -180,12 +196,12 @@ export function Experience() {
             <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.12 }}>
               <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", marginBottom: "3rem" }}>
                 <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)", whiteSpace: "nowrap" }}>
-                  {lang === "el" ? "Η Παραλία" : "The Beach"}
+                  {lang === "el" ? "Η Εμπειρία της Παραλίας" : "The Beach Experience"}
                 </span>
                 <div style={{ flex: 1, height: "1px", backgroundColor: BORDER }} />
               </div>
               <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 400, color: C, lineHeight: 1.2, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "2rem" }}>
-                {lang === "el" ? <>Ιδιωτική Παραλία,<br />Στα Πόδια Σας</> : <>Private Beach,<br />At Your Feet</>}
+                {lang === "el" ? <>Η Θάλασσα<br />Στα Πόδια σου</> : <>The Sea at<br />Your Doorstep</>}
               </h2>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300, marginBottom: "1.5rem" }}>
                 {lang === "el"
@@ -226,7 +242,7 @@ export function Experience() {
                 <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(236,234,224,0.08)" }} />
               </div>
               <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 400, color: "#eceae0", lineHeight: 1.2, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "2rem" }}>
-                {lang === "el" ? <>Βράδια Αξέχαστα,<br />Στιγμές για Πάντα</> : <>Evenings Worth<br />Staying For</>}
+                {lang === "el" ? <>Καλοκαιρινές Νύχτες,<br />Αναμορφωμένες</> : <>Summer Nights,<br />Reimagined</>}
               </h2>
               <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: "rgba(236,234,224,0.5)", fontWeight: 300, marginBottom: "1.5rem" }}>
                 {lang === "el"
@@ -256,50 +272,65 @@ export function Experience() {
         </div>
       </section>
 
-      {/* ── Beyond ── */}
-      <section style={{ backgroundColor: "#eceae0", padding: "9rem 0" }}>
+      {/* ── Photo Gallery ── */}
+      <section style={{ backgroundColor: "#eceae0", padding: "7rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
-          <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.9 }}
+            style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "4rem" }}
+          >
+            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)", whiteSpace: "nowrap" }}>
+              {lang === "el" ? "Η Ζωή στη Βίλα" : "Life at the Villa"}
+            </span>
+            <div style={{ flex: 1, height: "1px", backgroundColor: BORDER }} />
+          </motion.div>
 
-            {/* Text */}
-            <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", marginBottom: "3rem" }}>
-                <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)", whiteSpace: "nowrap" }}>
-                  {d.localLabel}
-                </span>
-                <div style={{ flex: 1, height: "1px", backgroundColor: BORDER }} />
-              </div>
-              <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 400, color: C, lineHeight: 1.2, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "2rem" }}>
-                {d.localHeading[0]}<br />{d.localHeading[1]}
-              </h2>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300, marginBottom: "1.5rem" }}>{d.localP1}</p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300, marginBottom: "2.5rem" }}>{d.localP2}</p>
-              <div style={{ padding: "2rem", backgroundColor: "#ffffff", borderLeft: `2px solid ${BORDER}` }}>
-                <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.5rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)", marginBottom: "0.75rem" }}>
-                  {lang === "el" ? "Η Σύσταση μας" : "Our Recommendation"}
-                </p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.85rem", lineHeight: 1.9, color: MUTED, fontWeight: 300, margin: 0 }}>
-                  {lang === "el"
-                    ? "Ρωτήστε μας για τις ταβέρνες του Παλιού — ξέρουμε πού κάθεται η αλιευτική παράδοση και πού σερβίρεται η καλύτερη φρέσκια ψαρόσουπα."
-                    : "Ask us about the tavernas of Palio — we know where the fishing tradition sits and where the best fresh fish soup is served."}
-                </p>
-              </div>
+          {/* 10-photo freeform grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "0.5rem" }}>
+            {/* Row 1: large left (span 7) + tall right (span 5) */}
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+              style={{ gridColumn: "1 / 8", overflow: "hidden" }}>
+              <img src={GALLERY_IMGS[0]} alt="" style={{ width: "100%", height: "400px", objectFit: "cover", display: "block" }} />
+            </motion.div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.05 }}
+              style={{ gridColumn: "8 / 13", overflow: "hidden" }}>
+              <img src={GALLERY_IMGS[1]} alt="" style={{ width: "100%", height: "400px", objectFit: "cover", display: "block" }} />
             </motion.div>
 
-            {/* Images */}
-            <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.12 }}
-              style={{ display: "grid", gap: "0.5rem" }}>
-              <div style={{ overflow: "hidden" }}>
-                <img ref={localImg1} src={LOCAL_IMG_1} alt="Village dining"
-                  style={{ width: "100%", height: "380px", objectFit: "cover", display: "block", willChange: "transform" }} />
-              </div>
-              <div style={{ overflow: "hidden" }}>
-                <img ref={localImg2} src={LOCAL_IMG_2} alt="Palio village"
-                  style={{ width: "100%", height: "260px", objectFit: "cover", display: "block", willChange: "transform" }} />
-              </div>
+            {/* Row 2: 3 equal columns */}
+            {[2, 3, 4].map((i, idx) => (
+              <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: idx * 0.06 }}
+                style={{ gridColumn: `${1 + idx * 4} / ${5 + idx * 4}`, overflow: "hidden" }}>
+                <img src={GALLERY_IMGS[i]} alt="" style={{ width: "100%", height: "300px", objectFit: "cover", display: "block" }} />
+              </motion.div>
+            ))}
+
+            {/* Row 3: small (span 5) + large (span 7) */}
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+              style={{ gridColumn: "1 / 6", overflow: "hidden" }}>
+              <img src={GALLERY_IMGS[5]} alt="" style={{ width: "100%", height: "340px", objectFit: "cover", display: "block" }} />
             </motion.div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.05 }}
+              style={{ gridColumn: "6 / 13", overflow: "hidden" }}>
+              <img src={GALLERY_IMGS[6]} alt="" style={{ width: "100%", height: "340px", objectFit: "cover", display: "block" }} />
+            </motion.div>
+
+            {/* Row 4: 3 equal columns */}
+            {[7, 8, 9].map((i, idx) => (
+              <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: idx * 0.06 }}
+                style={{ gridColumn: `${1 + idx * 4} / ${5 + idx * 4}`, overflow: "hidden" }}>
+                <img src={GALLERY_IMGS[i]} alt="" style={{ width: "100%", height: "280px", objectFit: "cover", display: "block" }} />
+              </motion.div>
+            ))}
           </div>
         </div>
+
+        <style>{`
+          @media (max-width: 768px) {
+            .gallery-grid > div { grid-column: 1 / -1 !important; }
+          }
+        `}</style>
       </section>
 
       {/* ── "Makes you think of love" CTA ── */}

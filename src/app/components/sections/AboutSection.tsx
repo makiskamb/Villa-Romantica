@@ -44,7 +44,7 @@ export function AboutSection() {
   const img2 = useParallax(0.08);
 
   return (
-    <section id="about" style={{ backgroundColor: "#ffffff", padding: "10rem 0" }}>
+    <section id="about" style={{ backgroundColor: "#eceae0", padding: "10rem 0" }}>
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* Editorial two-column */}

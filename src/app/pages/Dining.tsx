@@ -50,7 +50,7 @@ export function Dining() {
       </section>
 
       {/* ── Intro ── */}
-      <section style={{ backgroundColor: "#ffffff", padding: "7rem 0" }}>
+      <section style={{ backgroundColor: "#eceae0", padding: "7rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -220,7 +220,7 @@ export function Dining() {
       </section>
 
       {/* ── Local Dining ── */}
-      <section style={{ backgroundColor: "#ffffff", padding: "9rem 0" }}>
+      <section style={{ backgroundColor: "#eceae0", padding: "9rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
 

@@ -88,6 +88,27 @@ export function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 1 }}
           >
+            {/* Pull quote — above the heading */}
+            <div
+              style={{
+                marginBottom: "3rem",
+                padding: "2rem 2rem 2rem 1.75rem",
+                borderLeft: `2px solid ${BORDER}`,
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "'Cinzel', serif",
+                  fontSize: "0.82rem",
+                  color: C,
+                  lineHeight: 2,
+                  letterSpacing: "0.06em",
+                }}
+              >
+                {c.quote}
+              </p>
+            </div>
+
             <h2
               style={{
                 fontFamily: "'Cinzel', serif",
@@ -174,36 +195,6 @@ export function ContactSection() {
               </div>
 
               <a
-                href="https://www.facebook.com/villaromantica.gr"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ display: "flex", alignItems: "flex-start", gap: "1.25rem", textDecoration: "none" }}
-              >
-                <div
-                  style={{
-                    width: "38px",
-                    height: "38px",
-                    backgroundColor: C,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                    transition: "background-color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#1877F2"; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = C; }}
-                >
-                  <Facebook size={14} color="#eceae0" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <p style={labelStyle}>{c.facebookLabel}</p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", color: C, fontWeight: 300 }}>
-                    facebook.com/villaromantica.gr
-                  </p>
-                </div>
-              </a>
-
-              <a
                 href="https://www.instagram.com/villaromantica_"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -232,27 +223,36 @@ export function ContactSection() {
                   </p>
                 </div>
               </a>
-            </div>
 
-            {/* Pull quote */}
-            <div
-              style={{
-                marginTop: "4rem",
-                padding: "2rem 2rem 2rem 1.75rem",
-                borderLeft: `2px solid ${BORDER}`,
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: "'Cinzel', serif",
-                  fontSize: "0.82rem",
-                  color: C,
-                  lineHeight: 2,
-                  letterSpacing: "0.06em",
-                }}
+              <a
+                href="https://www.facebook.com/villaromantica.gr"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "flex", alignItems: "flex-start", gap: "1.25rem", textDecoration: "none" }}
               >
-                {c.quote}
-              </p>
+                <div
+                  style={{
+                    width: "38px",
+                    height: "38px",
+                    backgroundColor: C,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                    transition: "background-color 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#1877F2"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = C; }}
+                >
+                  <Facebook size={14} color="#eceae0" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p style={labelStyle}>{c.facebookLabel}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", color: C, fontWeight: 300 }}>
+                    facebook.com/villaromantica.gr
+                  </p>
+                </div>
+              </a>
             </div>
           </motion.div>
 
@@ -262,7 +262,7 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.15 }}
-            style={{ backgroundColor: "#ffffff", padding: "3.5rem" }}
+            style={{ backgroundColor: "#e4e2d8", padding: "3.5rem" }}
           >
             {submitted ? (
               <div

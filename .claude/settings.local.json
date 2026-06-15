@@ -19,7 +19,13 @@
       "WebFetch(domain:s6.gifyu.com)",
       "WebFetch(domain:s4.gifyu.com)",
       "Bash(dir \"C:\\\\Users\\\\maxfo\\\\Desktop\\\\Websites\\\\Luxury Villa Website Design\\\\public\" /b)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "WebFetch(domain:nominatim.openstreetmap.org)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(ls \"C:/Users/maxfo/Desktop/VillaRomantica_Content/VARIOUS/\" | grep -i \"134\")",
+      "Bash(find \"C:/Users/maxfo/Desktop/VillaRomantica_Content\" -name \"*5480*\" 2>/dev/null *)"
     ]
   }
 }

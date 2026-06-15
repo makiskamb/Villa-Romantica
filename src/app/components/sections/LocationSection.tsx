@@ -14,7 +14,7 @@ export function LocationSection() {
   const go = useNavigate();
 
   return (
-    <section id="location" style={{ backgroundColor: "#ffffff", padding: "4rem 0 0" }}>
+    <section id="location" style={{ backgroundColor: "#eceae0", padding: "4rem 0 0" }}>
       <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
 
         {/* Label */}
