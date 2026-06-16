@@ -164,15 +164,15 @@ export function About() {
       </section>
 
       {/* ── CTA Banner ── */}
-      <section style={{ backgroundColor: "#dfb8b7", padding: "4rem 0" }}>
+      <section style={{ backgroundColor: "#eceae0", padding: "4rem 0" }}>
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
           style={{ textAlign: "center", padding: "0 2.5rem" }}>
-          <div style={{ width: "1px", height: "36px", backgroundColor: "rgba(236,234,224,0.4)", margin: "0 auto 2rem" }} />
-          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", fontWeight: 400, color: "#eceae0", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "2rem" }}>
+          <div style={{ width: "1px", height: "36px", backgroundColor: "rgba(68,67,64,0.15)", margin: "0 auto 2rem" }} />
+          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", fontWeight: 400, color: "#444340", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "2rem" }}>
             {a.ctaHeading}
           </h2>
           <button onClick={() => go("/contact")}
-            style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#dfb8b7", backgroundColor: "#eceae0", border: "none", cursor: "pointer", padding: "1rem 3rem", transition: "opacity 0.3s ease" }}
+            style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#eceae0", backgroundColor: "#444340", border: "none", cursor: "pointer", padding: "1rem 3rem", transition: "opacity 0.3s ease" }}
             onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.8"; }}
             onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}>
             {a.ctaButton}

@@ -33,7 +33,7 @@ export function Location() {
               Villa Romantica · {l.label}
             </p>
             <h1 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 400, color: "#ffffff", lineHeight: 1.1, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              {l.heading[0]},<br />{l.heading[1]}
+              {l.sectionHeading[0]}<br />{l.sectionHeading[1]}
             </h1>
           </motion.div>
         </div>

@@ -106,7 +106,7 @@ export function ExperienceSection() {
       </div>
 
       {/* Amenities strip */}
-      <div style={{ backgroundColor: C }}>
+      <div style={{ backgroundColor: "#eceae0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "6rem 2.5rem" }}>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -115,10 +115,10 @@ export function ExperienceSection() {
             transition={{ duration: 0.9 }}
             style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "4rem" }}
           >
-            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(236,234,224,0.3)", whiteSpace: "nowrap" }}>
+            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)", whiteSpace: "nowrap" }}>
               {e.amenitiesLabel}
             </span>
-            <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(236,234,224,0.1)" }} />
+            <div style={{ flex: 1, height: "1px", backgroundColor: BORDER }} />
           </motion.div>
 
           <div className="amenities-grid-home" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "0" }}>
@@ -133,15 +133,15 @@ export function ExperienceSection() {
                   transition={{ duration: 0.6, delay: i * 0.05 }}
                   style={{
                     padding: "2rem 2rem 2rem 0",
-                    borderLeft: i % 4 > 0 ? "1px solid rgba(236,234,224,0.08)" : "none",
+                    borderLeft: i % 4 > 0 ? `1px solid ${BORDER}` : "none",
                     paddingLeft: i % 4 > 0 ? "2rem" : "0",
                   }}
                 >
-                  <Icon size={15} style={{ color: "rgba(236,234,224,0.3)", marginBottom: "1rem", display: "block" }} strokeWidth={1.5} />
-                  <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", fontWeight: 400, color: "#eceae0", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.4rem" }}>
+                  <Icon size={15} style={{ color: MUTED, marginBottom: "1rem", display: "block" }} strokeWidth={1.5} />
+                  <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", fontWeight: 400, color: C, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.4rem" }}>
                     {item.label}
                   </p>
-                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", color: "rgba(236,234,224,0.4)", lineHeight: 1.6, fontWeight: 300 }}>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem", color: MUTED, lineHeight: 1.6, fontWeight: 300 }}>
                     {item.desc}
                   </p>
                 </motion.div>

@@ -25,10 +25,10 @@ export function Rooms() {
             transition={{ duration: 1 }}
           >
             <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(236,234,224,0.55)", marginBottom: "1rem" }}>
-              Villa Romantica · {r.label}
+              Villa Romantica · {r.heading}
             </p>
             <h1 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 400, color: "#ffffff", lineHeight: 1.1, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-              {r.heading}
+              {r.label}
             </h1>
           </motion.div>
         </div>

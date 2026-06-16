@@ -124,10 +124,10 @@ export function Footer() {
               style={{ display: "inline-flex", alignItems: "center", marginBottom: "2rem" }}
             >
               <img
-                src="/athens voice logo.png"
+                src="/greecerace-almazois-epikoinonias-athensvoice-logo.png"
                 alt="Athens Voice"
                 style={{
-                  height: "44px",
+                  height: "50px",
                   width: "auto",
                   objectFit: "contain",
                   opacity: 0.85,
@@ -159,8 +159,8 @@ export function Footer() {
               style={{ display: "inline-flex" }}
             >
               <img
-                src="/booking-badge.png"
-                alt="Booking.com 9.5"
+                src="/booking 9.6.png"
+                alt="Booking.com 9.6"
                 style={{
                   height: "72px",
                   width: "auto",

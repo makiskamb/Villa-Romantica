@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "motion/react";
 import { ExperienceSection } from "../components/sections/ExperienceSection";
 import { useLanguage } from "../context/LanguageContext";
@@ -44,6 +45,17 @@ export function Experience() {
   const quoteImg   = useParallax(0.16);
   const beachImg   = useParallax(0.14);
   const eventsImg  = useParallax(0.12);
+
+  const gImg0 = useParallax(0.09);
+  const gImg1 = useParallax(0.11);
+  const gImg2 = useParallax(0.08);
+  const gImg3 = useParallax(0.13);
+  const gImg4 = useParallax(0.10);
+  const gImg5 = useParallax(0.10);
+  const gImg6 = useParallax(0.12);
+  const gImg7 = useParallax(0.08);
+  const gImg8 = useParallax(0.11);
+  const gImg9 = useParallax(0.09);
 
   return (
     <main>
@@ -117,24 +129,24 @@ export function Experience() {
       </section>
 
       {/* ── Drinks & Cocktails ── */}
-      <section style={{ backgroundColor: "#1e1d1b", padding: "9rem 0" }}>
+      <section style={{ backgroundColor: "#eceae0", padding: "9rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
           <div className="dining-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "6rem", alignItems: "start" }}>
 
             {/* Text */}
             <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
               <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", marginBottom: "3rem" }}>
-                <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(236,234,224,0.25)", whiteSpace: "nowrap" }}>
+                <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)", whiteSpace: "nowrap" }}>
                   {d.barLabel}
                 </span>
-                <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(236,234,224,0.08)" }} />
+                <div style={{ flex: 1, height: "1px", backgroundColor: BORDER }} />
               </div>
-              <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 400, color: "#eceae0", lineHeight: 1.2, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "2rem" }}>
+              <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 400, color: C, lineHeight: 1.2, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "2rem" }}>
                 {d.barHeading[0]}<br />{d.barHeading[1]}
               </h2>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: "rgba(236,234,224,0.5)", fontWeight: 300, marginBottom: "1.5rem" }}>{d.barP1}</p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: "rgba(236,234,224,0.5)", fontWeight: 300, marginBottom: "1.5rem" }}>{d.barP2}</p>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: "rgba(236,234,224,0.5)", fontWeight: 300 }}>{d.barP3}</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300, marginBottom: "1.5rem" }}>{d.barP1}</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300, marginBottom: "1.5rem" }}>{d.barP2}</p>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem", lineHeight: 2.1, color: MUTED, fontWeight: 300 }}>{d.barP3}</p>
             </motion.div>
 
             {/* Images */}
@@ -275,60 +287,80 @@ export function Experience() {
       {/* ── Photo Gallery ── */}
       <section style={{ backgroundColor: "#eceae0", padding: "7rem 0" }}>
         <div style={{ maxWidth: "100%", margin: "0 auto", padding: "0 2.5rem" }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.9 }}
-            style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "4rem" }}
-          >
-            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)", whiteSpace: "nowrap" }}>
-              {lang === "el" ? "Η Ζωή στη Βίλα" : "Life at the Villa"}
-            </span>
-            <div style={{ flex: 1, height: "1px", backgroundColor: BORDER }} />
-          </motion.div>
 
-          {/* 10-photo freeform grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "0.5rem" }}>
-            {/* Row 1: large left (span 7) + tall right (span 5) */}
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-              style={{ gridColumn: "1 / 8", overflow: "hidden" }}>
-              <img src={GALLERY_IMGS[0]} alt="" style={{ width: "100%", height: "400px", objectFit: "cover", display: "block" }} />
-            </motion.div>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.05 }}
-              style={{ gridColumn: "8 / 13", overflow: "hidden" }}>
-              <img src={GALLERY_IMGS[1]} alt="" style={{ width: "100%", height: "400px", objectFit: "cover", display: "block" }} />
-            </motion.div>
+          {/* Scattered editorial layout — 3 columns */}
+          <div className="scatter-gallery" style={{ display: "grid", gridTemplateColumns: "1fr 1.15fr 1fr", gap: "2.5rem", alignItems: "start" }}>
 
-            {/* Row 2: 3 equal columns */}
-            {[2, 3, 4].map((i, idx) => (
-              <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: idx * 0.06 }}
-                style={{ gridColumn: `${1 + idx * 4} / ${5 + idx * 4}`, overflow: "hidden" }}>
-                <img src={GALLERY_IMGS[i]} alt="" style={{ width: "100%", height: "300px", objectFit: "cover", display: "block" }} />
+            {/* Left column — starts lower */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", paddingTop: "8rem" }}>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
+                style={{ overflow: "hidden" }}>
+                <img ref={gImg0} src={GALLERY_IMGS[0]} alt="" style={{ width: "100%", height: "340px", objectFit: "cover", objectPosition: "center 80%", display: "block", willChange: "transform" }} />
               </motion.div>
-            ))}
-
-            {/* Row 3: small (span 5) + large (span 7) */}
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-              style={{ gridColumn: "1 / 6", overflow: "hidden" }}>
-              <img src={GALLERY_IMGS[5]} alt="" style={{ width: "100%", height: "340px", objectFit: "cover", display: "block" }} />
-            </motion.div>
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.05 }}
-              style={{ gridColumn: "6 / 13", overflow: "hidden" }}>
-              <img src={GALLERY_IMGS[6]} alt="" style={{ width: "100%", height: "340px", objectFit: "cover", display: "block" }} />
-            </motion.div>
-
-            {/* Row 4: 3 equal columns */}
-            {[7, 8, 9].map((i, idx) => (
-              <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: idx * 0.06 }}
-                style={{ gridColumn: `${1 + idx * 4} / ${5 + idx * 4}`, overflow: "hidden" }}>
-                <img src={GALLERY_IMGS[i]} alt="" style={{ width: "100%", height: "280px", objectFit: "cover", display: "block" }} />
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.1 }}
+                style={{ overflow: "hidden" }}>
+                <img ref={gImg1} src={GALLERY_IMGS[1]} alt="" style={{ width: "100%", height: "280px", objectFit: "cover", display: "block", willChange: "transform" }} />
               </motion.div>
-            ))}
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.15 }}
+                style={{ overflow: "hidden" }}>
+                <img ref={gImg2} src={GALLERY_IMGS[2]} alt="" style={{ width: "100%", height: "260px", objectFit: "cover", objectPosition: "center 80%", display: "block", willChange: "transform" }} />
+              </motion.div>
+            </div>
+
+            {/* Center — label, large photo, tagline, second photo */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2rem" }}>
+              <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
+                style={{ fontFamily: "'Cinzel', serif", fontSize: "0.55rem", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(68,67,64,0.4)", margin: 0 }}>
+                / {lang === "el" ? "Η Ζωή στη Βίλα" : "Life at the Villa"}
+              </motion.p>
+              <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.05 }}
+                style={{ overflow: "hidden", width: "100%" }}>
+                <img ref={gImg3} src={GALLERY_IMGS[3]} alt="" style={{ width: "100%", height: "420px", objectFit: "cover", objectPosition: "center 70%", display: "block", willChange: "transform" }} />
+              </motion.div>
+              <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.1 }}
+                style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1rem, 2vw, 1.4rem)", fontWeight: 400, color: C, letterSpacing: "0.12em", textTransform: "uppercase", textAlign: "center", lineHeight: 1.7, margin: "0.5rem 0" }}>
+                {lang === "el" ? "Αυτός Πρέπει να\nΕίναι ο Τόπος" : "This Must Be\nThe Place"}
+              </motion.p>
+              <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.12 }}
+                style={{ overflow: "hidden", width: "100%" }}>
+                <img ref={gImg4} src={GALLERY_IMGS[4]} alt="" style={{ width: "100%", height: "300px", objectFit: "cover", objectPosition: "center 75%", display: "block", willChange: "transform" }} />
+              </motion.div>
+            </div>
+
+            {/* Right column — starts even higher */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", paddingTop: "3rem" }}>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
+                style={{ overflow: "hidden" }}>
+                <img ref={gImg5} src={GALLERY_IMGS[5]} alt="" style={{ width: "100%", height: "280px", objectFit: "cover", objectPosition: "center 45%", display: "block", willChange: "transform" }} />
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.1 }}
+                style={{ overflow: "hidden" }}>
+                <img ref={gImg6} src={GALLERY_IMGS[6]} alt="" style={{ width: "100%", height: "360px", objectFit: "cover", display: "block", willChange: "transform" }} />
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.15 }}
+                style={{ overflow: "hidden" }}>
+                <img ref={gImg7} src={GALLERY_IMGS[7]} alt="" style={{ width: "100%", height: "260px", objectFit: "cover", objectPosition: "center 70%", display: "block", willChange: "transform" }} />
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Bottom strip — 2 wide photos */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "1.5rem" }}>
+            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
+              style={{ overflow: "hidden" }}>
+              <img ref={gImg8} src={GALLERY_IMGS[8]} alt="" style={{ width: "100%", height: "320px", objectFit: "cover", objectPosition: "center 70%", display: "block", willChange: "transform" }} />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.08 }}
+              style={{ overflow: "hidden" }}>
+              <img ref={gImg9} src={GALLERY_IMGS[9]} alt="" style={{ width: "100%", height: "320px", objectFit: "cover", objectPosition: "center 55%", display: "block", willChange: "transform" }} />
+            </motion.div>
           </div>
         </div>
 
         <style>{`
           @media (max-width: 768px) {
-            .gallery-grid > div { grid-column: 1 / -1 !important; }
+            .scatter-gallery { grid-template-columns: 1fr !important; gap: 1rem !important; }
+            .scatter-gallery > div { padding-top: 0 !important; }
           }
         `}</style>
       </section>
