@@ -158,7 +158,7 @@ export function Experience() {
               </div>
               <div style={{ overflow: "hidden" }}>
                 <img ref={barImg2} src={DRINKS_IMG_2} alt="Cocktails"
-                  style={{ width: "100%", height: "260px", objectFit: "cover", display: "block", willChange: "transform" }} />
+                  style={{ width: "100%", height: "260px", objectFit: "cover", objectPosition: "center 20%", display: "block", willChange: "transform" }} />
               </div>
             </motion.div>
           </div>
@@ -182,7 +182,7 @@ export function Experience() {
         <div style={{ position: "relative", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "2rem" }}>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
             <div style={{ width: "1px", height: "40px", backgroundColor: "rgba(236,234,224,0.25)", margin: "0 auto 2rem" }} />
-            <p style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1rem, 2.8vw, 2.2rem)", fontWeight: 400, color: "#ffffff", letterSpacing: "0.1em", textTransform: "uppercase", maxWidth: "680px", lineHeight: 1.6 }}>
+            <p style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1rem, 2.8vw, 2.2rem)", fontWeight: 400, color: "#ffffff", letterSpacing: "0.1em", textTransform: "uppercase", whiteSpace: "nowrap", lineHeight: 1.6 }}>
               {lang === "el"
                 ? "«Ξύπνα. Κατέβα. Βούτα.»"
                 : '"Wake up. Walk down. Dive in."'}
@@ -376,7 +376,7 @@ export function Experience() {
           <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 4vw, 3.2rem)", fontWeight: 400, color: C, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "1rem" }}>
             {lang === "el" ? "Σε Κάνει να Σκεφτείς την Αγάπη" : "Makes you think of love"}
           </h2>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300, marginBottom: "3rem", maxWidth: "480px", margin: "0 auto 3rem" }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300, marginBottom: "3rem", whiteSpace: "nowrap", margin: "0 auto 3rem" }}>
             {lang === "el"
               ? "Ένας τόπος για να επιβραδύνεις, να αναπνεύσεις και να ζήσεις το καλοκαίρι όπως πρέπει να νιώθεται."
               : "A place to slow down, breathe, and experience summer the way it should feel."}

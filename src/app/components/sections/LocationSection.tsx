@@ -228,7 +228,7 @@ export function LocationSection() {
           <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 4vw, 3.2rem)", fontWeight: 400, color: C, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "1rem" }}>
             {lang === "el" ? "Βρείτε τον Δρόμο σας" : "Find Your Way Here"}
           </h2>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300, maxWidth: "480px", margin: "0 auto 3rem" }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300, whiteSpace: "nowrap", margin: "0 auto 3rem" }}>
             {lang === "el"
               ? "Είμαστε εδώ για να σας βοηθήσουμε να φτάσετε — και να νιώσετε σαν στο σπίτι σας από τη στιγμή που θα φτάσετε."
               : "We're here to help you arrive — and feel at home from the moment you do."}

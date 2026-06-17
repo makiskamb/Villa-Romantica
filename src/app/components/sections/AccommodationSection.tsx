@@ -57,7 +57,7 @@ export function AccommodationSection() {
             {r.heading}
           </h2>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300, maxWidth: "680px", marginBottom: "1.25rem" }}>
-            Seven suites named for the gods of Olympus, each opening to the Aegean. Every room is a balance of simplicity and warmth — whitewashed walls, handpicked linens, and a terrace or balcony that makes the sea feel entirely yours.
+            Seven suites named after the gods of Olympus, each opening towards the Aegean and shaped by a quiet sense of elegance. Soft textures, natural light and carefully considered details create spaces that invite you to slow down and feel at ease.
           </p>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", lineHeight: 2, color: MUTED, fontWeight: 300, maxWidth: "680px" }}>
             {r.intro}

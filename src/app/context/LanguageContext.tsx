@@ -29,8 +29,8 @@ export const translations = {
       quote: '"The kind of place that quietly makes you think of love.\nExperience it for yourself."',
       stats: [
         { value: "30+", label: "Years" },
-        { value: "6", label: "Suites" },
-        { value: "10km", label: "From Kavala" },
+        { value: "7", label: "Suites" },
+        { value: "8km", label: "From Kavala" },
         { value: "0m", label: "To the Sea" },
       ],
     },
@@ -106,7 +106,7 @@ export const translations = {
     experience: {
       label: "The Villa Romantica Life",
       heading: ["The Experience", "Unfolds Here"],
-      intro: "At Villa Romantica, the experience unfolds gradually, shaped by the rhythm of the summer and the atmosphere of the space.",
+      intro: "A Way of Summer Living",
       sections: [
         {
           title: "Morning in the Garden",
@@ -290,8 +290,8 @@ export const translations = {
       quote: "«Ένας τόπος που σε κάνει σιωπηλά να σκεφτείς την αγάπη.\nΖήσε το μόνος σου.»",
       stats: [
         { value: "30+", label: "Χρόνια" },
-        { value: "6", label: "Σουίτες" },
-        { value: "10χλμ", label: "Από Καβάλα" },
+        { value: "7", label: "Σουίτες" },
+        { value: "8χλμ", label: "Από Καβάλα" },
         { value: "0μ", label: "Στη Θάλασσα" },
       ],
     },
@@ -366,7 +366,7 @@ export const translations = {
     experience: {
       label: "Η Ζωή στη Villa Romantica",
       heading: ["Η Εμπειρία", "Ξεδιπλώνεται Εδώ"],
-      intro: "Στη Villa Romantica, η εμπειρία ξεδιπλώνεται σταδιακά, διαμορφωμένη από τον ρυθμό του καλοκαιριού και την ατμόσφαιρα του χώρου.",
+      intro: "Ένας Τρόπος Καλοκαιρινής Ζωής",
       sections: [
         {
           title: "Πρωί στον Κήπο",

@@ -4,11 +4,17 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 
 const testimonials = [
-  { id: 1, name: "Maria K.",   origin: "Athens, Greece",      text: "Waking up to the sound of the Aegean every morning was something I will never forget. Villa Romantica is pure magic — intimate, beautiful, and deeply peaceful." },
-  { id: 2, name: "Stefan M.", origin: "Cologne, Germany",     text: "The most breathtaking sea view I have ever experienced from a hotel room. The hospitality was impeccable and the breakfast made with local ingredients was exceptional." },
-  { id: 3, name: "Sophie L.", origin: "Paris, France",        text: "Un vrai bijou caché sur la côte égéenne. The private beach, the garden bar at sunset, the atmosphere — everything was parfait. We are already planning our return." },
-  { id: 4, name: "Nikos P.",  origin: "Thessaloniki, Greece", text: "Just an hour from the city but worlds apart. Villa Romantica feels like your own private island. We come back every summer — it has become our family ritual." },
-  { id: 5, name: "James R.",  origin: "London, UK",           text: "Villa Romantica exceeded every expectation. The sea views were spectacular, the team was genuinely caring, and the whole experience felt effortlessly luxurious." },
+  { id: 1,  name: "Hannah",       origin: "United Kingdom", flag: "/flags/gb.png",  source: "Booking.com", text: "Such a lovely peaceful place - a great spot to base yourself visiting this area - beautiful terrace, private beach, friendly staff who made us feel welcome and a tasty breakfast." },
+  { id: 2,  name: "Alexandru",    origin: "Romania",        flag: "/flags/ro.png",  source: "Booking.com", text: "This kind of place is so rare and truly special, from the stunning location, to the wonderful family that put their heart and work into making it one of the most memorable locations you'll ever stumble upon in your travels." },
+  { id: 3,  name: "Simona",       origin: "Serbia",         flag: "/flags/rs.png",  source: "Booking.com", text: "Beautiful place, like a fairy tale. Wonderful smell of the sea and pine trees. Everything looks unreal. I recommend it to everyone, especially those who love the rich marine world and exploring. The food was excellent, the beach and sea fantastic, and the hosts extremely caring and attentive. A true family atmosphere. I would gladly return." },
+  { id: 4,  name: "Svitlana",     origin: "Ukraine",        flag: "/flags/ua.png",  source: "Booking.com", text: "This was the best vacation! Everything is thoughtfully designed, beautiful and stylish. Wonderful staff, a private beach, sunbeds, varied breakfast and spacious rooms. Bravo to the hostesses!" },
+  { id: 5,  name: "Adam",         origin: "United States",  flag: "/flags/us.png",  source: "Booking.com", text: "Amazing service, amazing staff, and an amazing place. Would love to go back not just for the beauty being on the beach but also due to the amazing hospitality and service!" },
+  { id: 6,  name: "Svetla",       origin: "Bulgaria",       flag: "/flags/bg.png",  source: "Booking.com", text: "We loved everything - from the location, to the cleanliness and the picturesque views. The breakfast was super delicious and different every morning, the staff was very kind and willing to help us get settled in easily. It was right on the edge of a cliff with private beach, which made the villa even more pleasant. I'll definitely return there and highly recommend it!" },
+  { id: 7,  name: "Vit Otahal",   origin: "Czech Republic", flag: "/flags/cz.png",  source: "Google",      text: "Excellent location, beautiful small secluded almost private beach with full beach service. Friendly owners, comfortable rooms, calm surroundings. A beautifully landscaped garden on a cliff above the sea with many romantic spots to sit and relax. Beach bar staff is kind, professional and very helpful." },
+  { id: 8,  name: "ML 7",         origin: "Greece",         flag: "/flags/gr.png",  source: "Google",      text: "A perfect stay – pure relaxation at Villa Romantica! Everything about this place was simply perfect. The hotel is family-run with genuine warmth and hospitality. The rooms are beautiful, the views stunning, and the whole atmosphere incredibly peaceful. The private beach area is a dream. We loved the chill background music, the attention to detail, and the personal touch in everything. Villa Romantica is a true hidden gem – we'll definitely come back!" },
+  { id: 9,  name: "Peter_Thanos", origin: "Greece",         flag: "/flags/gr.png",  source: "Google",      text: "A paradise on earth, an atmosphere of colors and emotions that fulfill every fantasy. The warm, human and welcoming environment provides everything needed for both mental and physical rejuvenation." },
+  { id: 10, name: "Iro Bale",     origin: "Greece",         flag: "/flags/gr.png",  source: "Google",      text: "After my visit to Villa Romantica, I can say I am incredibly satisfied. The location is magical. The service is excellent and the staff always willing to help. The food was delicious and well-prepared. The rooms are spotless and beautifully decorated. I highly recommend it to anyone looking for a beautiful place to relax by the sea." },
+  { id: 11, name: "Γεωργία Σ.",   origin: "Greece",         flag: "/flags/gr.png",  source: "Google",      text: "Built in a very beautiful location with views of endless blue. I was enchanted by the garden. The owners are very hospitable and helpful. It is worth visiting even just to enjoy a drink there." },
 ];
 
 const N = testimonials.length;
@@ -196,18 +202,21 @@ export function TestimonialsSection() {
           }}
         >
           {display.map((item, i) => (
-            <div key={i} style={{ flexShrink: 0, width: "clamp(280px, 32vw, 380px)", backgroundColor: "#e4e2d8", border: "1px solid rgba(68,67,64,0.1)", padding: "2.5rem", pointerEvents: dragging ? "none" : "auto" }}>
-              <div style={{ display: "flex", gap: "3px", marginBottom: "1.75rem" }}>
+            <div key={i} style={{ flexShrink: 0, width: "clamp(280px, 32vw, 380px)", backgroundColor: "#e4e2d8", border: "1px solid rgba(68,67,64,0.1)", padding: "1.75rem", pointerEvents: dragging ? "none" : "auto", display: "flex", flexDirection: "column" }}>
+              <div style={{ display: "flex", gap: "3px", marginBottom: "1.25rem" }}>
                 {Array.from({ length: 5 }).map((_, si) => (
                   <Star key={si} size={11} fill="rgba(68,67,64,0.5)" stroke="none" />
                 ))}
               </div>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", fontWeight: 300, lineHeight: 1.9, color: "rgba(68,67,64,0.65)", marginBottom: "2rem" }}>
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.88rem", fontWeight: 300, lineHeight: 1.9, color: "rgba(68,67,64,0.65)", marginBottom: "1.25rem", flex: 1 }}>
                 "{item.text}"
               </p>
-              <div style={{ borderTop: "1px solid rgba(68,67,64,0.1)", paddingTop: "1.25rem" }}>
-                <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.72rem", color: "#444340", marginBottom: "0.3rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>{item.name}</p>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.68rem", fontWeight: 300, letterSpacing: "0.06em", color: "rgba(68,67,64,0.4)" }}>{item.origin}</p>
+              <div style={{ borderTop: "1px solid rgba(68,67,64,0.1)", paddingTop: "1rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <div>
+                  <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.72rem", color: "#444340", marginBottom: "0.3rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>{item.name}</p>
+                  <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.68rem", fontWeight: 300, letterSpacing: "0.06em", color: "rgba(68,67,64,0.4)" }}>{item.origin} · {item.source}</p>
+                </div>
+                <img src={item.flag} alt={item.origin} style={{ width: "22px", height: "16px", objectFit: "cover", borderRadius: "2px", flexShrink: 0 }} />
               </div>
             </div>
           ))}
